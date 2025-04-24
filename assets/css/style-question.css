@@ -125,7 +125,7 @@ a {
 /* Responsive cho mobile */
 @media (max-width: 768px) {
     .navbar {
-        padding: 20px 10px;
+        padding: 10px 10px;
     }
 }
 
@@ -136,6 +136,7 @@ a {
 
 .navbar ul {
     display: flex;
+    justify-content: center;
 }
 
 .navbar ul a {
@@ -150,6 +151,12 @@ a {
     /* Prepare for hover border */
     transition: border-color 0.3s ease;
     /* Smooth transition for border */
+}
+
+@media (max-width: 768px) {
+    .navbar ul a {
+        font-size: 1rem;
+    }
 }
 
 .navbar ul a:hover {
@@ -186,6 +193,7 @@ a {
     padding-top: 100px;
 }
 
+
 .main {
     display: flex;
     justify-content: center;
@@ -197,7 +205,7 @@ a {
 @media (max-width: 768px) {
     .main {
         padding: 10px;
-        padding-top: 100px;
+        padding-top: 70px;
     }
 }
 
@@ -300,6 +308,16 @@ a {
     display: inline-block;
 }
 
+@media (max-width: 768px) {
+    .detail-answer {
+        font-size: 1.2rem;
+    }
+
+    .detail-answer b {
+        font-size: 1.3rem
+    }
+}
+
 /* Question */
 
 /* --- Form Question Section Styling --- */
@@ -324,6 +342,14 @@ a {
     padding-left: 2px;
 }
 
+@media (max-width: 768px) {
+    .form-ques label {
+        font-size: 1.2rem;
+
+    }
+
+}
+
 /* Style inputs and textarea similarly */
 .form-ques input[type="text"],
 .form-ques input[type="email"],
@@ -341,6 +367,16 @@ a {
     /* Add transition */
     font-family: inherit;
     /* Ensure consistent font */
+}
+
+@media (max-width: 768px) {
+
+    .form-ques input[type="text"],
+    .form-ques input[type="email"],
+    .form-ques textarea {
+        font-size: 1rem;
+        padding: 10px 12px;
+    }
 }
 
 .form-ques textarea {
@@ -380,6 +416,15 @@ a {
     margin-top: 15px;
     /* Space above the button */
 }
+
+@media (max-width: 768px) {
+    .form-ques .btn {
+        font-size: 1rem;
+        padding: 10px 12px;
+        margin-top: 5px;
+    }
+}
+
 
 .form-ques .btn:hover {
     background-color: #11373D;
@@ -467,13 +512,36 @@ a {
 }
 
 @media (max-width: 768px) {
+
+    .footer {
+        padding-top: 30px;
+        margin-top: 30px;
+    }
+
+    .footer h3 {
+        font-size: 1.3rem;
+        color: #ffffff;
+        font-weight: 600;
+        margin-bottom: 10px;
+        text-align: left;
+    }
+
+    .footer p {
+        font-size: 1.2rem;
+    }
+
     .footer-container {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 20px;
         padding-bottom: 30px;
     }
 
     .footer h3 {
         margin-bottom: 15px;
+    }
+    .footer-links li {
+        margin-bottom: 10px;
+        text-align: left;
+        font-size: 1.2rem;
     }
 }
