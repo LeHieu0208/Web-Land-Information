@@ -5,9 +5,12 @@
 :root {
     --primary-color: #eafaf5;
     --text-color: #1A535C;
-    --shadow-light: rgba(0, 0, 0, 0.1); /* Added for consistency */
-    --shadow-medium: rgba(0, 0, 0, 0.15); /* Added for consistency */
-    --shadow-dark: rgba(0, 0, 0, 0.2); /* Added for consistency */
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    /* Added for consistency */
+    --shadow-medium: rgba(0, 0, 0, 0.15);
+    /* Added for consistency */
+    --shadow-dark: rgba(0, 0, 0, 0.2);
+    /* Added for consistency */
 }
 
 html {
@@ -18,7 +21,8 @@ html {
 body {
     font-size: 1.6rem;
     font-family: "Roboto Slab", serif;
-    background-color: #f8f9fa; /* Added a light background for cards to pop */
+    background-color: #f8f9fa;
+    /* Added a light background for cards to pop */
 }
 
 /* common */
@@ -35,7 +39,8 @@ a {
     font-weight: 300;
     text-align: center;
     padding: 16px 30px;
-    border: none; /* Ensure no default border interferes */
+    border: none;
+    /* Ensure no default border interferes */
     cursor: pointer;
     /* Added shadow and transition */
     box-shadow: 0 3px 6px var(--shadow-light);
@@ -68,7 +73,7 @@ a {
 /* Header */
 .header {
     position: relative;
-    background-image: url("./assets/img/home-page-img.jpg");
+    background-image: url("../img/home-page-img.jpg");
     background-size: cover;
     height: 100vh;
 }
@@ -122,14 +127,19 @@ a {
     color: #FFF;
     margin: 0 10px;
     font-size: clamp(1rem, 3vw, 1.5rem);
-    font-weight: 300; /* Lighter weight for nav links */
-    padding-bottom: 5px; /* Add space for border */
-    border-bottom: 2px solid transparent; /* Prepare for hover border */
-    transition: border-color 0.3s ease; /* Smooth transition for border */
+    font-weight: 300;
+    /* Lighter weight for nav links */
+    padding-bottom: 5px;
+    /* Add space for border */
+    border-bottom: 2px solid transparent;
+    /* Prepare for hover border */
+    transition: border-color 0.3s ease;
+    /* Smooth transition for border */
 }
 
 .navbar ul a:hover {
-    border-bottom-color: #FFF; /* Use border instead of underline */
+    border-bottom-color: #FFF;
+    /* Use border instead of underline */
 }
 
 .navbar .action {
@@ -148,7 +158,7 @@ a {
     color: #fff;
     margin: 0 16px;
     font-weight: 300;
-    
+
 }
 
 .hero {
@@ -164,7 +174,8 @@ a {
     font-size: clamp(3rem, 5vw, 6rem);
     color: var(--primary-color);
     font-weight: 800;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.4); /* Added text shadow for readability */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+    /* Added text shadow for readability */
 }
 
 .hero .desc {
@@ -179,34 +190,43 @@ a {
     /* flex-direction: column; */
     /* align-items: center; */
     /* justify-content: center; */
-    padding: 0; /* Reset padding if section adds it */
+    padding: 0;
+    /* Reset padding if section adds it */
 }
 
 
 /* Info Section */
 .info-sec {
-    padding: 80px 30px; /* Increased vertical padding */
-    background-color: #f8f9fa; /* Consistent background */
+    padding: 80px 30px;
+    /* Increased vertical padding */
+    background-color: #f8f9fa;
+    /* Consistent background */
 }
 
 .info-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* More responsive */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* More responsive */
     gap: 40px;
-    max-width: 1200px; /* Constrain width */
-    margin: 0 auto; /* Center the grid */
+    max-width: 1200px;
+    /* Constrain width */
+    margin: 0 auto;
+    /* Center the grid */
 }
 
 
 .card {
-    background-color: var(--primary-color); /* Changed card background to white */
+    background-color: var(--primary-color);
+    /* Changed card background to white */
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    border-radius: 8px; /* Added border-radius */
+    border-radius: 8px;
+    /* Added border-radius */
     /* Added card shadow */
     box-shadow: 0 5px 15px var(--shadow-light);
-    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Added transition */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    /* Added transition */
 }
 
 .card:hover {
@@ -218,49 +238,65 @@ a {
 
 .card img {
     width: 100%;
-    height: 250px; /* Fixed height for consistency */
-    object-fit: cover; /* Ensure image covers the area */
+    height: 250px;
+    /* Fixed height for consistency */
+    object-fit: cover;
+    /* Ensure image covers the area */
     display: block;
 }
 
 
 .info-content {
-    padding: 25px; /* Increased padding */
-    color: #333; /* Darker text for readability */
-    flex-grow: 1; /* Allow content to grow */
-    display: flex; /* Use flex for better control */
+    padding: 25px;
+    /* Increased padding */
+    color: #333;
+    /* Darker text for readability */
+    flex-grow: 1;
+    /* Allow content to grow */
+    display: flex;
+    /* Use flex for better control */
     flex-direction: column;
 }
 
 
 .info-title {
     /* Removed padding here, handled by info-content */
-    font-size: clamp(1.8rem, 3vw, 2.2rem); /* Adjusted size */
+    font-size: clamp(1.8rem, 3vw, 2.2rem);
+    /* Adjusted size */
     font-weight: 600;
-    margin-bottom: 15px; /* Adjusted spacing */
+    margin-bottom: 15px;
+    /* Adjusted spacing */
     color: var(--text-color);
 }
 
-.info-title a:visited{
+.info-title a:visited {
     color: inherit;
 }
 
-.info-title a:hover{
+.info-title a:hover {
     opacity: 0.8;
 }
 
 .info-desc {
-    text-align: left; /* Align left for better readability */
-    color: #555; /* Slightly lighter text color */
-    font-size: 1.5rem; /* Adjust size */
-    line-height: 1.6; /* Adjust line height */
-    padding: 0; /* Remove padding if handled by parent */
-    flex-grow: 1; /* Allow description to fill space if needed */
+    text-align: left;
+    /* Align left for better readability */
+    color: #555;
+    /* Slightly lighter text color */
+    font-size: 1.5rem;
+    /* Adjust size */
+    line-height: 1.6;
+    /* Adjust line height */
+    padding: 0;
+    /* Remove padding if handled by parent */
+    flex-grow: 1;
+    /* Allow description to fill space if needed */
 }
 
 .search-tool {
-    grid-column: 1 / -1; /* Make search tool span full width regardless of columns */
-    padding: 30px; /* Increased padding */
+    grid-column: 1 / -1;
+    /* Make search tool span full width regardless of columns */
+    padding: 30px;
+    /* Increased padding */
     /* Inherits .card styles (background, shadow, etc.) */
 }
 
@@ -268,38 +304,46 @@ a {
 /* Remove responsive grid overrides, handled by auto-fit */
 /* @media (max-width: 768px) { ... } */
 
-.search-tool{
+.search-tool {
     background-color: var(--primary-color);
 }
 
 .search-tool .info-title {
     color: #1A535C;
-    font-weight: 700; /* Bolder title */
+    font-weight: 700;
+    /* Bolder title */
     text-align: left;
-    margin-bottom: 30px; /* More space below title */
+    margin-bottom: 30px;
+    /* More space below title */
 }
 
 
 .search-tool .select {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-end; /* Align items to bottom */
-    gap: 25px; /* Increased gap */
+    align-items: flex-end;
+    /* Align items to bottom */
+    gap: 25px;
+    /* Increased gap */
     margin-bottom: 30px;
-    padding: 0; /* Removed padding */
+    padding: 0;
+    /* Removed padding */
 }
 
 
 .search-tool .select-card {
-    flex: 1 1 200px; /* Allow flex grow/shrink, base width 200px */
+    flex: 1 1 200px;
+    /* Allow flex grow/shrink, base width 200px */
     min-width: 200px;
 }
 
 
 .search-tool .select-card label {
     display: block;
-    font-weight: 500; /* Slightly bolder label */
-    font-size: 1.4rem; /* Slightly larger label */
+    font-weight: 500;
+    /* Slightly bolder label */
+    font-size: 1.4rem;
+    /* Slightly larger label */
     color: #333;
     margin-bottom: 8px;
     padding-left: 2px;
@@ -309,10 +353,13 @@ a {
 .select-card input,
 .select-card select {
     width: 100%;
-    padding: 12px 15px; /* Adjusted padding */
-    border: 1px solid var(--text-color); /* Slightly darker border */
+    padding: 12px 15px;
+    /* Adjusted padding */
+    border: 1px solid var(--text-color);
+    /* Slightly darker border */
     border-radius: 5px;
-    font-size: 1.5rem; /* Slightly larger font */
+    font-size: 1.5rem;
+    /* Slightly larger font */
     box-sizing: border-box;
     background-color: #fff;
     /* Added subtle inset shadow and transition */
@@ -334,9 +381,12 @@ a {
     background-color: var(--text-color);
     color: white;
     font-weight: 500;
-    padding: 13px 35px; /* Match input height */
-    flex-shrink: 0; /* Prevent button shrinking */
-    align-self: flex-end; /* Ensure it aligns with bottom of inputs */
+    padding: 13px 35px;
+    /* Match input height */
+    flex-shrink: 0;
+    /* Prevent button shrinking */
+    align-self: flex-end;
+    /* Ensure it aligns with bottom of inputs */
     /* Inherits hover effect from base .btn */
 }
 
@@ -348,20 +398,26 @@ a {
 
 /* --- Results Area Styling --- */
 .results {
-    border-top: 1px solid var(--text-color); /* Lighter separator */
-    padding: 30px 0 10px; /* Adjusted padding */
+    border-top: 1px solid var(--text-color);
+    /* Lighter separator */
+    padding: 30px 0 10px;
+    /* Adjusted padding */
     min-height: 50px;
     color: #333;
 }
 
 
 .results .result-card {
-    margin-bottom: 30px; /* Space between result cards */
-    padding: 15px; /* Padding inside result card */
-    background-color: var(--primary-color); /* Slightly off-white bg */
+    margin-bottom: 30px;
+    /* Space between result cards */
+    padding: 15px;
+    /* Padding inside result card */
+    background-color: var(--primary-color);
+    /* Slightly off-white bg */
     border-radius: 5px;
     /* border: 1px solid #eee; */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.5); /* Very subtle shadow for result items */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    /* Very subtle shadow for result items */
 }
 
 .results .result-card:last-child {
@@ -373,30 +429,39 @@ a {
     display: inline-block;
     color: var(--text-color);
     padding-bottom: 8px;
-    margin-bottom: 15px; /* Space below heading */
-    border-bottom: 1px solid var(--primary-color); /* Use theme color for underline */
-    font-size: 1.7rem; /* Slightly larger heading */
+    margin-bottom: 15px;
+    /* Space below heading */
+    border-bottom: 1px solid var(--primary-color);
+    /* Use theme color for underline */
+    font-size: 1.7rem;
+    /* Slightly larger heading */
     font-weight: 600;
 }
 
 
 .results .result-card .result-list {
-    list-style-type: none; /* Remove default bullets */
-    padding: 0; /* Remove default padding */
+    list-style-type: none;
+    /* Remove default bullets */
+    padding: 0;
+    /* Remove default padding */
 }
 
 .results .result-card .result-list li {
     font-size: 1.5rem;
     color: #444;
-    margin-bottom: 12px; /* Increased spacing */
-    padding-left: 20px; /* Indent text */
-    position: relative; /* For custom bullet */
+    margin-bottom: 12px;
+    /* Increased spacing */
+    padding-left: 20px;
+    /* Indent text */
+    position: relative;
+    /* For custom bullet */
     line-height: 1.5;
 }
 
 .results .result-card .result-list li::before {
     /* Custom bullet */
-    content: "›"; /* Use a different character like › */
+    content: "›";
+    /* Use a different character like › */
     position: absolute;
     left: 0;
     top: 0;
@@ -407,20 +472,26 @@ a {
 }
 
 .results .result-card .result-list a {
-    color: #0056b3; /* Standard link color */
-    text-decoration: none; /* Remove underline by default */
+    color: #0056b3;
+    /* Standard link color */
+    text-decoration: none;
+    /* Remove underline by default */
 }
 
 
 .results .result-card .result-list a:hover {
-    text-decoration: underline; /* Underline on hover */
-    color: #003d80; /* Darker link color on hover */
+    text-decoration: underline;
+    /* Underline on hover */
+    color: #003d80;
+    /* Darker link color on hover */
 }
 
 
 .results .no-data {
-    /* display: none; */ /* Keep commented out for testing */
-    color: #dc3545; /* Bootstrap danger color */
+    /* display: none; */
+    /* Keep commented out for testing */
+    color: #dc3545;
+    /* Bootstrap danger color */
     width: 100%;
     text-align: center;
     padding: 20px;
@@ -429,28 +500,36 @@ a {
 
 
 .results .main-content {
-    display: block; /* Make it block for better spacing */
-    font-weight: 400; /* Normal weight */
+    display: block;
+    /* Make it block for better spacing */
+    font-weight: 400;
+    /* Normal weight */
     line-height: 1.6;
     color: #555;
 }
 
 /* Footer Styles (Placeholder) */
 .footer {
-    background-color: #343a40; /* Dark background */
-    color: #f8f9fa; /* Light text */
+    background-color: #343a40;
+    /* Dark background */
+    color: #f8f9fa;
+    /* Light text */
     padding: 40px 20px;
     text-align: center;
-    margin-top: 60px; /* Space above footer */
+    margin-top: 60px;
+    /* Space above footer */
 }
 
-.footer p { /* Example footer content style */
+.footer p {
+    /* Example footer content style */
     font-size: 1.4rem;
-    color: #adb5bd; /* Lighter gray */
+    color: #adb5bd;
+    /* Lighter gray */
 }
 
 /* Ensure body takes full height for footer positioning if needed */
-html, body {
+html,
+body {
     height: 100%;
 }
 
@@ -460,11 +539,13 @@ body {
 }
 
 .main {
-    flex: 1 0 auto; /* Allow main content to grow */
+    flex: 1 0 auto;
+    /* Allow main content to grow */
 }
 
 .footer {
-    flex-shrink: 0; /* Prevent footer from shrinking */
+    flex-shrink: 0;
+    /* Prevent footer from shrinking */
 }
 
 
@@ -473,40 +554,53 @@ body {
     .header .content {
         padding: 0 15px;
     }
+
     .navbar {
         padding: 15px 20px;
     }
-     .hero {
-        padding-top: 60px; /* Adjust for smaller navbar height */
-     }
+
+    .hero {
+        padding-top: 60px;
+        /* Adjust for smaller navbar height */
+    }
+
     .info-sec {
         padding: 60px 15px;
     }
-     .info-grid {
-        gap: 25px; /* Reduce gap on smaller screens */
-     }
-     .card img {
-         height: 200px; /* Adjust image height */
-     }
+
+    .info-grid {
+        gap: 25px;
+        /* Reduce gap on smaller screens */
+    }
+
+    .card img {
+        height: 200px;
+        /* Adjust image height */
+    }
+
     .search-tool .select {
         gap: 15px;
     }
+
     .select .btn {
-        width: 100%; /* Make button full width on small screens */
-        margin-top: 10px; /* Add space above full-width button */
+        width: 100%;
+        /* Make button full width on small screens */
+        margin-top: 10px;
+        /* Add space above full-width button */
     }
 
-     .results {
-         padding: 20px 0 10px;
-     }
-     .results .result-card {
-         padding: 10px;
-     }
+    .results {
+        padding: 20px 0 10px;
+    }
+
+    .results .result-card {
+        padding: 10px;
+    }
 }
 
 /* Footer Styles */
 .footer {
-    background-color: var(--text-color); 
+    background-color: var(--text-color);
     color: #bdc3c7;
     padding-top: 60px;
     margin-top: 60px;
@@ -514,68 +608,82 @@ body {
     line-height: 1.6;
     flex-shrink: 0;
 }
+
 .footer-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px 40px;
     display: grid;
-    grid-template-columns: 2fr 2fr 1fr; /* Chia theo tỉ lệ 2:1:2 */
+    grid-template-columns: 2fr 2fr 1fr;
+    /* Chia theo tỉ lệ 2:1:2 */
     gap: 30px;
 }
+
 .footer h3 {
-    color: #ffffff; 
+    color: #ffffff;
     font-size: 1.8rem;
     font-weight: 600;
-    margin-bottom: 20px; 
-    text-align: left; 
+    margin-bottom: 20px;
+    text-align: left;
 }
+
 .footer p {
     margin-bottom: 10px;
     text-align: left;
     width: 75%
 }
+
 .footer-links ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
+
 .footer-links li {
     margin-bottom: 10px;
-    text-align: left; 
+    text-align: left;
 }
+
 .footer a {
     color: #ecf0f1;
     text-decoration: none;
     transition: color 0.3s ease, text-decoration 0.3s ease;
 }
+
 .footer a:hover {
     color: #ffffff;
     text-decoration: underline;
 }
+
 .footer-contact p {
-     text-align: left;
+    text-align: left;
 }
+
 .footer-contact p a {
     word-break: break-all;
 }
+
 .footer-bottom {
     background-color: #233140;
     padding: 20px 0;
     text-align: center;
 }
+
 .footer-bottom p {
     margin: 0;
-    color: #95a5a6; 
+    color: #95a5a6;
     font-size: 1.3rem;
-    text-align: center; 
+    text-align: center;
     width: 100%;
 }
+
 @media (max-width: 768px) {
     .footer-container {
         grid-template-columns: 1fr;
-        gap: 30px; 
+        gap: 30px;
         padding-bottom: 30px;
     }
+
     .footer h3 {
         margin-bottom: 15px;
     }
