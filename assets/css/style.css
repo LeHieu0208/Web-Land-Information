@@ -659,9 +659,14 @@ body {
 }
 
 .footer a {
-    color: #ecf0f1;
+    color: var(--primary-color);
     text-decoration: none;
     transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+.footer-about a{
+    display: inline-block;
+    text-align: start;
+    width: 100%;
 }
 
 .footer a:hover {
