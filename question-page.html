@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin đất đai - Hỏi đáp pháp lý</title>
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style-question.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+</head>
+
+<body>
+    <header class="header">
+        <div class="overlay"></div> <!-- ← thêm dòng này -->
+        <div class="content">
+            <nav class="navbar">
+                <!-- Navigation -->
+                <ul>
+                    <li>
+                        <a href="index.html">Trang chủ</a>
+                    </li>
+                    <li>
+                        <a href="index.html#main">Tra cứu thông tin</a>
+                    </li>
+                    <li>
+                        <a href="#!">Hướng dẫn thủ tục</a>
+                    </li>
+                    <li>
+                        <a href="#!">Hỏi đáp</a>
+                    </li>
+                </ul>
+                <!-- Brand -->
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="content">
+            <div class="line-path">
+                <i class="fas fa-home"></i>
+                <span>/ Hỏi đáp pháp lý</span>
+            </div>
+            <section class="new-ques-sec same-sec">
+                <h2 class="title-section">
+                    Câu hỏi nổi bật
+                </h2>
+
+                <div class="list-ques card-style">
+
+                </div>
+
+                <div class="pagination" id="pagination">
+                    <!-- Nút phân trang ở đây -->
+                </div>
+            </section>
+
+            <section class="answer-sec same-sec">
+                <h2 class="title-section">
+                    Trả lời chi tiết
+                </h2>
+                <div class="detail-answer card-style">
+                    
+                </div>
+            </section>
+
+            <section class="form-ques-sec same-sec">
+                <h2 class="title-section">Hỏi đáp cùng chuyên gia</h2>
+                <form class="form-ques card-style" id="questionForm">
+                    <label for="name">Tên của bạn:</label>
+                    <input type="text" id="name" name="name" placeholder="Nhập tên của bạn" required>
+
+                    <label for="email">Email của bạn:</label>
+                    <input type="email" id="email" name="email" placeholder="Nhập email của bạn" required>
+
+                    <label for="question">Nội dung:</label>
+                    <textarea id="question" name="question" rows="4" cols="50" placeholder="Nhập câu hỏi tại đây..."
+                        required></textarea>
+
+                    <button type="submit" class="btn">Gửi câu hỏi</button>
+                </form>
+            </section>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>Về chúng tôi</h3>
+                <p>Trang web là bài dự thi của nhóm sinh viên lớp 4733, ngành Luật chất lượng cao nằm trong cuộc thi
+                    “Sinh viên ứng dụng Công nghệ thông tin vào thiết kế các sản phẩm tuyên truyền phổ biến giáo dục
+                    pháp luật”
+                    do trường Đại học Luật Hà Nội tổ chức nhằm góp phần tuyên
+                    truyền và phổ biến pháp luật. </p>
+            </div>
+            <div class="footer-contact">
+                <h3>Liên hệ</h3>
+                <p>Email: <a href="mailto:phanngocnhi4733@gmail.com.">phanngocnhi4733@gmail.com.</a></p>
+                <p>Điện thoại: 0889020766</p>
+                <p>Địa chỉ: Trường Đại học Luật Hà Nội, 87 Đ. Nguyễn Chí Thanh, Láng Thượng, Đống Đa, Hà Nội</p>
+            </div>
+            <div class="footer-links">
+                <h3>Liên kết</h3>
+                <ul>
+                    <li><a href="#!">Trang chủ</a></li>
+                    <li><a href="#!">Tra cứu thông tin</a></li>
+                    <li><a href="#!">Hướng dẫn thủ tục</a></li>
+                    <li><a href="#!">Hỏi đáp pháp lý</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Thông tin đất đai. Mọi quyền được bảo lưu.</p>
+        </div>
+    </footer>
+    <script src="script-question.js"></script>
+</body>
+
+</html>

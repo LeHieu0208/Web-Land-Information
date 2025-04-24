@@ -1,0 +1,469 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #eafaf5;
+    --text-color: #1A535C;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    /* Added for consistency */
+    --shadow-medium: rgba(0, 0, 0, 0.15);
+    /* Added for consistency */
+    --shadow-dark: rgba(0, 0, 0, 0.2);
+    /* Added for consistency */
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: "Roboto Slab", serif;
+    background-color: #f8f9fa;
+    /* Added a light background for cards to pop */
+}
+
+/* common */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.btn {
+    display: inline-block;
+    border-radius: 5px;
+    background-color: var(--text-color);
+    color: var(--primary-color);
+    font-weight: 300;
+    text-align: center;
+    padding: 16px 30px;
+    border: none;
+    /* Ensure no default border interferes */
+    cursor: pointer;
+    /* Added shadow and transition */
+    box-shadow: 0 3px 6px var(--shadow-light);
+    transition: background-color 0.2s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    /* Added hover effect */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px var(--shadow-medium);
+}
+
+.title-section {
+    color: #1A535C;
+    /* Same color as .info-title */
+    font-weight: 600;
+    /* Same weight as .info-title */
+    text-align: start;
+    /* Align left */
+    margin-bottom: 30px;
+    /* Increased space below title */
+    font-size: clamp(1.5rem, 5vw, 3.6rem);
+    /* Adjust size as needed */
+}
+
+
+.desc {
+    max-width: 750px;
+    text-align: center;
+    color: #fff;
+    font-weight: 300;
+    font-size: clamp(0.7rem, 5vw, 1.8rem);
+    line-height: 2;
+    overflow-wrap: break-word;
+    padding: 20px;
+}
+
+.card-style {
+    /* Apply this class to both .search-tool and .form-ques-sec if desired */
+    background-color: #fff;
+    /* Example background */
+    border: 1px solid #e0e0e0;
+    /* Example subtle border */
+    border-radius: 8px;
+    /* Example rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    /* Example subtle shadow */
+    padding: 25px 30px;
+    /* Adjust padding as needed */
+    margin-bottom: 30px;
+    /* Space below the card */
+}
+
+.same-sec {
+    /* Apply base card styles here OR add the .card-style class to the HTML */
+    background-color: #fff;
+    border: 1px solid #e7e7e7;
+    border-radius: 6px;
+    padding: 25px 30px;
+    /* Consistent padding */
+    margin-top: 40px;
+    /* Space above this section */
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+/* Header */
+
+
+.navbar {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    padding: 20px 30px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    z-index: 99;
+    background-color: var(--text-color);
+}
+
+.navbar.scrolled {
+    background-color: var(--text-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.navbar ul {
+    display: flex;
+}
+
+.navbar ul a {
+    color: #FFF;
+    margin: 0 10px;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    font-weight: 300;
+    /* Lighter weight for nav links */
+    padding-bottom: 5px;
+    /* Add space for border */
+    border-bottom: 2px solid transparent;
+    /* Prepare for hover border */
+    transition: border-color 0.3s ease;
+    /* Smooth transition for border */
+}
+
+.navbar ul a:hover {
+    border-bottom-color: #FFF;
+    /* Use border instead of underline */
+}
+
+.navbar .action {
+    margin-left: 60px;
+}
+
+.navbar .action a {
+    padding: 12px 30px;
+}
+
+.navbar .brand {
+    margin-left: auto;
+}
+
+.navbar .brand a {
+    color: #fff;
+    margin: 0 16px;
+    font-weight: 300;
+}
+
+/* Main */
+
+.main {
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+    padding-top: 100px;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+    padding-top: 100px;
+}
+
+/* Responsive padding for mobile screens */
+@media (max-width: 768px) {
+    .main {
+        padding: 10px;
+        padding-top: 100px;
+    }
+}
+
+.main .line-path{
+    color: var(--text-color);
+    font-size: 1.2rem;
+    padding: 5px;
+    border-bottom: 1px solid var(--text-color);
+    width: 50%;
+}
+
+.content {
+    width: 1024px;
+}
+
+
+/* List Question */
+
+.list-ques{
+    padding: 0;
+    border: 0;
+}
+
+.question-card {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.question-card:hover {
+    background-color: var(--primary-color);
+}
+
+.question-card h3 {
+    margin: 0 0 10px;
+    font-size: clamp(1rem, 3vw, 1.6rem);
+    font-weight: bold;
+    line-height: 1.5;
+    color: var(--text-color);
+}
+
+.question-card p{
+    text-align: start;
+    color: #333;
+    font-weight: 300;
+    font-size: clamp(0.6rem, 3vw, 1.2rem);
+    line-height: 1.5;
+    overflow-wrap: break-word;
+    margin-bottom: 15px;
+}
+
+.question-meta {
+    color: #777;
+    font-size: 1rem;
+    text-align: end;
+}
+
+.pagination {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.pagination button {
+    margin: 0 4px;
+    padding: 8px 12px;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.pagination button.active {
+    background-color: var(--text-color);
+    font-weight: bold;
+}
+
+.pagination button:hover {
+    opacity: 0.9;
+}
+
+/* Result */
+
+.detail-answer{
+    line-height: 1.5;
+}
+
+.detail-answer i{
+    font-style: italic;
+}
+.detail-answer b{
+    font-weight: bold;
+    font-size: 1.8rem;
+    margin: 10px 0;
+    display: inline-block;
+}
+
+/* Question */
+
+/* --- Form Question Section Styling --- */
+
+.form-ques {
+    display: flex;
+    /* Use flexbox for layout */
+    flex-direction: column;
+    /* Stack elements vertically */
+    gap: 15px;
+    /* Space between form elements (label/input pairs) */
+    background-color: #fff;
+}
+
+.form-ques label {
+    display: block;
+    font-weight: 500;
+    /* Slightly less bold than search label */
+    font-size: 1.8rem;
+    /* Adjust size */
+    color: #333;
+    padding-left: 2px;
+}
+
+/* Style inputs and textarea similarly */
+.form-ques input[type="text"],
+.form-ques input[type="email"],
+.form-ques textarea {
+    width: 100%;
+    padding: 12px 15px;
+    /* Consistent padding */
+    border: 1px solid #BDE0D5;
+    /* Same border color as search inputs */
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+    background-color: #fff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    /* Add transition */
+    font-family: inherit;
+    /* Ensure consistent font */
+}
+
+.form-ques textarea {
+    min-height: 120px;
+    /* Give textarea more initial height */
+    resize: vertical;
+    /* Allow vertical resizing */
+}
+
+/* Focus styles for inputs and textarea */
+.form-ques input[type="text"]:focus,
+.form-ques input[type="email"]:focus,
+.form-ques textarea:focus {
+    outline: none;
+    border-color: #1A535C;
+    /* Darker border on focus */
+    box-shadow: 0 0 0 2px rgba(26, 83, 92, 0.2);
+    /* Subtle focus ring */
+}
+
+/* Style the submit button */
+.form-ques .btn {
+    background-color: #1A535C;
+    /* Same background as search button */
+    color: white;
+    font-weight: 500;
+    padding: 12px 30px;
+    transition: background-color 0.2s ease;
+    border: none;
+    /* Remove default border */
+    border-radius: 5px;
+    /* Match input border-radius */
+    cursor: pointer;
+    font-size: 1em;
+    align-self: flex-start;
+    /* Align button to the start (left) */
+    margin-top: 15px;
+    /* Space above the button */
+}
+
+.form-ques .btn:hover {
+    background-color: #11373D;
+    /* Same darker hover as search button */
+}
+
+
+/* Footer Styles */
+.footer {
+    background-color: var(--text-color);
+    color: #bdc3c7;
+    padding-top: 60px;
+    margin-top: 60px;
+    font-size: 1.4rem;
+    line-height: 1.6;
+    flex-shrink: 0;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 40px;
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr;
+    /* Chia theo tỉ lệ 2:1:2 */
+    gap: 30px;
+}
+
+.footer h3 {
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.footer p {
+    margin-bottom: 10px;
+    text-align: left;
+    width: 75%
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.footer a {
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.footer a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.footer-contact p {
+    text-align: left;
+}
+
+.footer-contact p a {
+    word-break: break-all;
+}
+
+.footer-bottom {
+    background-color: #233140;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #95a5a6;
+    font-size: 1.3rem;
+    text-align: center;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding-bottom: 30px;
+    }
+
+    .footer h3 {
+        margin-bottom: 15px;
+    }
+}

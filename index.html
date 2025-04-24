@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin đất đai</title>
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <div class="overlay"></div> <!-- ← thêm dòng này -->
+        <div class="content">
+            <nav class="navbar">
+                <!-- Navigation -->
+                <ul>
+                    <li>
+                        <a href="#!">Trang chủ</a>
+                    </li>
+                    <li>
+                        <a href="#main">Tra cứu thông tin</a>
+                    </li>
+                    <li>
+                        <a href="#!">Hướng dẫn thủ tục</a>
+                    </li>
+                    <li>
+                        <a href="question-page.html">Hỏi đáp</a>
+                    </li>
+                </ul>
+                <!-- Brand -->
+            </nav>
+            <!-- Hero part -->
+            <div class="hero">
+                <h1 class="title">
+                    THÔNG TIN ĐẤT ĐAI
+                </h1>
+                <p class="desc">
+                    Trang web phổ biến pháp luật công khai, minh bạch đất đai cung cấp thông tin pháp lý rõ ràng, dễ
+                    tiếp cận về các quy định liên quan đến quản lý, sử dụng và giao dịch đất đai.
+                </p>
+                <div class="find-more">
+                    <a href="#main" class="btn">Tìm hiểu thêm</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main" id="main">
+        <section class="info-sec">
+            <div class="info-grid">
+                <div id="search-tool" class="card search-tool">
+                    <h3 class="info-title">Tra cứu giấy tờ đất đai</h3>
+
+                    <div class="select">
+                        <div class="select-card city-select">
+                            <label for="cityInput">Nhập hoặc chọn khu vực</label>
+                            <input list="cityList" id="cityInput" name="city"
+                                placeholder="Nhập hoặc chọn thành phố..." />
+                            <datalist id="cityList"></datalist>
+                        </div>
+                        <div class="select-card type-paper-select">
+                            <label for="paperSelect">Chọn loại giấy tờ bạn muốn tìm kiếm</label>
+                            <select name="paper" id="paperSelect">
+                                <option value="All" selected>All</option>
+                                <option value="Quy hoạch và sử dụng đất">Quy hoạch và sử dụng đất</option>
+                                <option value="Định giá đất">Định giá đất</option>
+                                <option value="Thu hồi, bồi thường, tái định cư">Thu hồi, bồi thường, tái định cư
+                                </option>
+                            </select>
+                        </div>
+
+                        <button onclick="searchLandDocs()" class="btn">Tìm kiếm</button>
+                    </div>
+                    <div class="results" id="results">
+                    </div>
+                </div>
+                <div class="card instruc">
+                    <img src="./assets/img/instruction.jpg" alt="instruction">
+                    <div class="info-content">
+                        <h3 class="info-title">
+                            <a href="">Hướng dẫn thủ tục</a>
+                        </h3>
+                        <p class="info-desc desc">
+                            Các thủ tục liên quan đến đấu giá, thu hồi và các đơn từ cần thiết đều có ở đây!
+                        </p>
+                    </div>
+                </div>
+                <div class="card question">
+                    <img src="./assets/img/question.jpg" alt="question">
+                    <div class="info-content">
+                        <h3 class="info-title">
+                            <a href="question-page.html">Hỏi đáp pháp lý</a>
+                        </h3>
+                        <p class="info-desc desc">
+                            Chuyên mục giải đáp thắc mắc của người dân và doanh nghiệp về các vấn đề pháp luật đất đai,
+                            với sự tham gia của chuyên gia pháp lý.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>Về chúng tôi</h3>
+                <p>Trang web là bài dự thi của nhóm sinh viên lớp 4733, ngành Luật chất lượng cao nằm trong cuộc thi
+                    “Sinh viên ứng dụng Công nghệ thông tin vào thiết kế các sản phẩm tuyên truyền phổ biến giáo dục
+                    pháp luật”
+                    do trường Đại học Luật Hà Nội tổ chức nhằm góp phần tuyên
+                    truyền và phổ biến pháp luật. </p>
+            </div>
+            <div class="footer-contact">
+                <h3>Liên hệ</h3>
+                <p>Email: <a href="mailto:phanngocnhi4733@gmail.com.">phanngocnhi4733@gmail.com.</a></p>
+                <p>Điện thoại: 0889020766</p>
+                <p>Địa chỉ: Trường Đại học Luật Hà Nội, 87 Đ. Nguyễn Chí Thanh, Láng Thượng, Đống Đa, Hà Nội</p>
+            </div>
+            <div class="footer-links">
+                <h3>Liên kết</h3>
+                <ul>
+                    <li><a href="#!">Trang chủ</a></li>
+                    <li><a href="#!">Tra cứu thông tin</a></li>
+                    <li><a href="#!">Hướng dẫn thủ tục</a></li>
+                    <li><a href="#!">Hỏi đáp pháp lý</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Thông tin đất đai. Mọi quyền được bảo lưu.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
