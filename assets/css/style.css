@@ -68,7 +68,7 @@ a {
 /* Header */
 .header {
     position: relative;
-    background-image: url("/assets/img/home-page-img.jpg");
+    background-image: url("./assets/img/home-page-img.jpg");
     background-size: cover;
     height: 100vh;
 }
