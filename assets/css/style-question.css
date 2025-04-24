@@ -122,6 +122,13 @@ a {
     background-color: var(--text-color);
 }
 
+/* Responsive cho mobile */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 20px 10px;
+    }
+}
+
 .navbar.scrolled {
     background-color: var(--text-color);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
@@ -134,7 +141,7 @@ a {
 .navbar ul a {
     color: #FFF;
     margin: 0 10px;
-    font-size: clamp(1rem, 3vw, 1.5rem);
+    font-size: clamp(0.7rem, 3vw, 1.5rem);
     font-weight: 300;
     /* Lighter weight for nav links */
     padding-bottom: 5px;
@@ -192,7 +199,7 @@ a {
     }
 }
 
-.main .line-path{
+.main .line-path {
     color: var(--text-color);
     font-size: 1.2rem;
     padding: 5px;
@@ -207,7 +214,7 @@ a {
 
 /* List Question */
 
-.list-ques{
+.list-ques {
     padding: 0;
     border: 0;
 }
@@ -234,7 +241,7 @@ a {
     color: var(--text-color);
 }
 
-.question-card p{
+.question-card p {
     text-align: start;
     color: #333;
     font-weight: 300;
@@ -276,14 +283,15 @@ a {
 
 /* Result */
 
-.detail-answer{
+.detail-answer {
     line-height: 1.5;
 }
 
-.detail-answer i{
+.detail-answer i {
     font-style: italic;
 }
-.detail-answer b{
+
+.detail-answer b {
     font-weight: bold;
     font-size: 1.8rem;
     margin: 10px 0;

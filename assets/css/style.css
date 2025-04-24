@@ -114,6 +114,13 @@ a {
     background-color: transparent;
 }
 
+/* Responsive cho mobile */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 20px 10px;
+    }
+}
+
 .navbar.scrolled {
     background-color: var(--text-color);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
@@ -126,7 +133,7 @@ a {
 .navbar ul a {
     color: #FFF;
     margin: 0 10px;
-    font-size: clamp(1rem, 3vw, 1.5rem);
+    font-size: clamp(0.7rem, 3vw, 1.5rem);
     font-weight: 300;
     /* Lighter weight for nav links */
     padding-bottom: 5px;
