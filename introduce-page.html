@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,121 +12,128 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+
 <body>
     <header class="header">
         <div class="overlay"></div> <!-- ← thêm dòng này -->
         <div class="content">
             <nav class="navbar">
-                <!-- Navigation -->
-                <!-- Menu Toggle -->
-                <button class="menu-toggle" aria-label="Toggle menu">☰</button>
-                <ul>
-                    <li>
-                        <a href="index.html">Trang chủ</a>
-                    </li>
-                    <li>
-                        <a href="index.html#main">Tra cứu thông tin</a>
-                    </li>
-                    <li>
-                        <a href="vbpl-page.html">Văn bản pháp luật</a>
-                    </li>
-                    <li>
-                        <a href="https://docs.google.com/document/d/1hzQAMvkHB7wY5bDoYjXfYhu8C_z6M8sQN4QOfZnBDLs/edit?usp=sharing">Hướng dẫn thủ tục</a>
-                    </li>
-                    <li>
-                        <a href="question-page.html">Hỏi đáp pháp lý</a>
-                    </li>
-                </ul>
-                <!-- Brand -->
-                <div class="brand">
-                    <a href="#!">Thông tin đất đai</a>
+                <div class="left-group">
+                    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+                    <ul>
+                        <li><a href="index.html" id="nav-home">Trang chủ</a></li>
+                        <li><a href="index.html#main" id="nav-search">Tra cứu thông tin</a></li>
+                        <li><a href="vbpl-page.html" id="nav-legal">Văn bản pháp luật</a></li>
+                        <li><a href="https://docs.google.com/document/d/1hzQAMvkHB7wY5bDoYjXfYhu8C_z6M8sQN4QOfZnBDLs/edit?usp=sharing"
+                                id="nav-guide">Hướng dẫn thủ tục</a></li>
+                        <li><a href="question-page.html" id="nav-qa">Hỏi đáp pháp lý</a></li>
+                    </ul>
+                </div>
+            
+                <div class="right-group">
+                    <div class="brand">
+                        <a href="#!" id="brand-text">Thông tin đất đai</a>
+                    </div>
+                    <div class="switch-wrapper">
+                        <span class="switch-label">VN</span>
+                        <label class="switch">
+                            <input type="checkbox" id="languageSwitch">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="switch-label">EN</span>
+                    </div>
                 </div>
             </nav>
         </div>
     </header>
 
-    <main class="main">
-        <section class="team-section">
-            <h2 class="title-section">Đội ngũ thực hiện</h2> <!-- Hoặc tiêu đề phù hợp -->
-            <div class="team-grid">
-        
+    <main class="main" id="main-content"> <!-- thêm id -->
+        <section class="team-section" id="team-section"> <!-- thêm id -->
+            <h2 class="title-section" id="team-title">Đội ngũ thực hiện</h2> <!-- thêm id -->
+            <div class="team-grid" id="team-grid"> <!-- thêm id -->
+                
                 <!-- Thành viên 1 -->
                 <div class="team-member-card">
                     <img src="assets/img/nhi.JPG" alt="Ảnh của Phan Ngọc Nhi" class="member-photo">
                     <div class="member-info">
-                        <h3 class="member-name">Phan Ngọc Nhi</h3>
-                        <p class="member-major"><strong>Ngành học:</strong> Luật Chất lượng cao</p>
-                        <p class="member-role"><strong>Nhiệm vụ:</strong> Thiết kế trang web</p>
+                        <h3 class="member-name" id="member-name-1">Phan Ngọc Nhi</h3> <!-- thêm id -->
+                        <p class="member-major" id="member-major-1"><strong>Ngành học:</strong> Luật Chất lượng cao</p> <!-- thêm id -->
+                        <p class="member-role" id="member-role-1"><strong>Nhiệm vụ:</strong> Thiết kế trang web</p> <!-- thêm id -->
                     </div>
                 </div>
-        
+    
                 <!-- Thành viên 2 -->
                 <div class="team-member-card">
                     <img src="assets/img/Hoang.jpg" alt="Ảnh của Trần Đức Minh Hoàng" class="member-photo">
                     <div class="member-info">
-                        <h3 class="member-name">Trần Đức Minh Hoàng</h3>
-                        <p class="member-major"><strong>Ngành học:</strong> Luật Chất lượng cao</p>
-                        <p class="member-role"><strong>Nhiệm vụ:</strong> Lập trình trang web</p>
+                        <h3 class="member-name" id="member-name-2">Trần Đức Minh Hoàng</h3>
+                        <p class="member-major" id="member-major-2"><strong>Ngành học:</strong> Luật Chất lượng cao</p>
+                        <p class="member-role" id="member-role-2"><strong>Nhiệm vụ:</strong> Lập trình trang web</p>
                     </div>
                 </div>
-        
+    
                 <!-- Thành viên 3 -->
                 <div class="team-member-card">
                     <img src="assets/img/huy-anh.PNG" alt="Ảnh của Nguyễn Huy Anh" class="member-photo">
                     <div class="member-info">
-                        <h3 class="member-name">Nguyễn Huy Anh</h3>
-                        <p class="member-major"><strong>Ngành học:</strong> Luật Chất lượng cao</p>
-                        <p class="member-role"><strong>Nhiệm vụ:</strong> Nghiên cứu nội dung</p>
+                        <h3 class="member-name" id="member-name-3">Nguyễn Huy Anh</h3>
+                        <p class="member-major" id="member-major-3"><strong>Ngành học:</strong> Luật Chất lượng cao</p>
+                        <p class="member-role" id="member-role-3"><strong>Nhiệm vụ:</strong> Nghiên cứu nội dung</p>
                     </div>
                 </div>
-        
+    
                 <!-- Thành viên 4 -->
                 <div class="team-member-card">
                     <img src="assets/img/hanh.JPG" alt="Ảnh của Nguyễn Hoàng Anh" class="member-photo">
-                     <div class="member-info">
-                        <h3 class="member-name">Nguyễn Hoàng Anh</h3>
-                        <p class="member-major"><strong>Ngành học:</strong> Luật Chất lượng cao</p>
-                        <p class="member-role"><strong>Nhiệm vụ:</strong> Nghiên cứu nội dung</p>
+                    <div class="member-info">
+                        <h3 class="member-name" id="member-name-4">Nguyễn Hoàng Anh</h3>
+                        <p class="member-major" id="member-major-4"><strong>Ngành học:</strong> Luật Chất lượng cao</p>
+                        <p class="member-role" id="member-role-4"><strong>Nhiệm vụ:</strong> Nghiên cứu nội dung</p>
                     </div>
                 </div>
-        
-                <!-- Thêm các thành viên khác theo cấu trúc tương tự -->
-        
+    
             </div>
         </section>
     </main>
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-about">
-                <h3>Về chúng tôi</h3>
-                <p>Trang web là bài dự thi của nhóm sinh viên lớp 4733, ngành Luật chất lượng cao nằm trong cuộc thi
+                <h3 id="footer-about-title">Về chúng tôi</h3> <!-- Added ID -->
+                <p id="footer-about-text">Trang web là bài dự thi của nhóm sinh viên lớp 4733, ngành Luật chất lượng cao
+                    nằm trong cuộc thi
                     “Sinh viên ứng dụng Công nghệ thông tin vào thiết kế các sản phẩm tuyên truyền phổ biến giáo dục
                     pháp luật”
                     do trường Đại học Luật Hà Nội tổ chức nhằm góp phần tuyên
-                    truyền và phổ biến pháp luật. </p>
-                <a href="introduce-page.html" class="team">Thành viên dự án</a>
+                    truyền và phổ biến pháp luật. </p> <!-- Added ID -->
+                <a href="introduce-page.html" class="team" id="footer-team-link">Thành viên dự án</a> <!-- Added ID -->
             </div>
             <div class="footer-contact">
-                <h3>Liên hệ</h3>
+                <h3 id="footer-contact-title">Liên hệ</h3> <!-- Added ID -->
                 <p>Email: <a href="mailto:phanngocnhi4733@gmail.com.">phanngocnhi4733@gmail.com.</a></p>
-                <p>Điện thoại: 0889020766</p>
-                <p>Địa chỉ: Trường Đại học Luật Hà Nội, 87 Đ. Nguyễn Chí Thanh, Láng Thượng, Đống Đa, Hà Nội</p>
+                <p><span id="footer-phone-label">Điện thoại</span>: 0889020766</p> <!-- Added ID -->
+                <p><span id="footer-address-label">Địa chỉ</span>: Trường Đại học Luật Hà Nội, 87 Đ. Nguyễn Chí Thanh,
+                    Láng Thượng, Đống Đa, Hà Nội</p> <!-- Added ID -->
             </div>
             <div class="footer-links">
-                <h3>Liên kết</h3>
+                <h3 id="footer-links-title">Liên kết</h3> <!-- Added ID -->
                 <ul>
-                    <li><a href="index.html">Trang chủ</a></li>
-                    <li><a href="index.html#main">Tra cứu thông tin</a></li>
-                    <li><a href="vbpl-page.html">Văn bản pháp luật</a></li>
-                    <li><a href="https://docs.google.com/document/d/1hzQAMvkHB7wY5bDoYjXfYhu8C_z6M8sQN4QOfZnBDLs/edit?usp=sharing">Hướng dẫn thủ tục</a></li>
-                    <li><a href="question-page.html">Hỏi đáp pháp lý</a></li>
+                    <!-- Use IDs from nav -->
+                    <li><a href="index.html" id="footer-nav-home">Trang chủ</a></li>
+                    <li><a href="index.html#main" id="footer-nav-search">Tra cứu thông tin</a></li>
+                    <li><a href="vbpl-page.html" id="footer-nav-legal">Văn bản pháp luật</a></li>
+                    <li><a href="https://docs.google.com/document/d/1hzQAMvkHB7wY5bDoYjXfYhu8C_z6M8sQN4QOfZnBDLs/edit?usp=sharing"
+                            id="footer-nav-guide">Hướng dẫn thủ tục</a></li>
+                    <li><a href="question-page.html" id="footer-nav-qa">Hỏi đáp pháp lý</a></li>
+
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Thông tin đất đai. Mọi quyền được bảo lưu.</p>
+            <p id="footer-copyright">© 2025 Thông tin đất đai. Mọi quyền được bảo lưu.</p> <!-- Added ID -->
         </div>
     </footer>
-    <script src="script-introduce.js"></script>
+    <script type="module" src="language-switcher.js"></script>
+    <script type="module" src="script-introduce.js"></script>
 </body>
+
 </html>

@@ -19,77 +19,80 @@
         <div class="overlay"></div> <!-- ← thêm dòng này -->
         <div class="content">
             <nav class="navbar">
-                <!-- Navigation -->
-                <!-- Menu Toggle -->
-                <button class="menu-toggle" aria-label="Toggle menu">☰</button>
-                <ul>
-                    <li>
-                        <a href="index.html">Trang chủ</a>
-                    </li>
-                    <li>
-                        <a href="index.html#main">Tra cứu thông tin</a>
-                    </li>
-                    <li>
-                        <a href="vbpl-page.html">Văn bản pháp luật</a>
-                    </li>
-                    <li>
-                        <a href="https://docs.google.com/document/d/1hzQAMvkHB7wY5bDoYjXfYhu8C_z6M8sQN4QOfZnBDLs/edit?usp=sharing">Hướng dẫn thủ tục</a>
-                    </li>
-                    <li>
-                        <a href="question-page.html">Hỏi đáp pháp lý</a>
-                    </li>
-                </ul>
-                <!-- Brand -->
-                <div class="brand">
-                    <a href="#!">Thông tin đất đai</a>
+                <div class="left-group">
+                    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+                    <ul>
+                        <li><a href="index.html" id="nav-home">Trang chủ</a></li>
+                        <li><a href="index.html#main" id="nav-search">Tra cứu thông tin</a></li>
+                        <li><a href="vbpl-page.html" id="nav-legal">Văn bản pháp luật</a></li>
+                        <li><a href="https://docs.google.com/document/d/1hzQAMvkHB7wY5bDoYjXfYhu8C_z6M8sQN4QOfZnBDLs/edit?usp=sharing"
+                                id="nav-guide">Hướng dẫn thủ tục</a></li>
+                        <li><a href="question-page.html" id="nav-qa">Hỏi đáp pháp lý</a></li>
+                    </ul>
+                </div>
+            
+                <div class="right-group">
+                    <div class="brand">
+                        <a href="#!" id="brand-text">Thông tin đất đai</a>
+                    </div>
+                    <div class="switch-wrapper">
+                        <span class="switch-label">VN</span>
+                        <label class="switch">
+                            <input type="checkbox" id="languageSwitch">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="switch-label">EN</span>
+                    </div>
                 </div>
             </nav>
         </div>
     </header>
 
-    <main class="main">
-        <div class="content">
-            <div class="line-path">
+    <main class="main" id="main-content">
+        <div class="content" id="content-wrapper">
+            <div class="line-path" id="breadcrumb">
                 <i class="fas fa-home"></i>
-                <span>/ Hỏi đáp pháp lý</span>
+                <span id="breadcrumb-text-hdpl">/ Hỏi đáp pháp lý</span>
             </div>
-            <section class="new-ques-sec same-sec">
-                <h2 class="title-section">
+    
+            <section class="new-ques-sec same-sec" id="featured-questions-section">
+                <h2 class="title-section" id="featured-questions-title">
                     Câu hỏi nổi bật
                 </h2>
-
-                <div class="list-ques card-style">
-
+    
+                <div class="list-ques card-style" id="list-questions">
+                    <!-- Danh sách câu hỏi nổi bật -->
                 </div>
-
+    
                 <div class="pagination" id="pagination">
                     <!-- Nút phân trang ở đây -->
                 </div>
             </section>
-
-            <section class="answer-sec same-sec">
-                <h2 class="title-section">
+    
+            <section class="answer-sec same-sec" id="detailed-answers-section">
+                <h2 class="title-section" id="detailed-answers-title">
                     Trả lời chi tiết
                 </h2>
-                <div class="detail-answer card-style">
-
+    
+                <div class="detail-answer card-style" id="detailed-answer">
+                    <!-- Trả lời chi tiết -->
                 </div>
             </section>
-
-            <section class="form-ques-sec same-sec">
-                <h2 class="title-section">Hỏi đáp cùng chuyên gia</h2>
+    
+            <section class="form-ques-sec same-sec" id="ask-expert-section">
+                <h2 class="title-section" id="ask-expert-title">Hỏi đáp cùng chuyên gia</h2>
+    
                 <form class="form-ques card-style" id="questionForm">
-                    <label for="name">Tên của bạn:</label>
+                    <label for="name" id="label-name">Tên của bạn:</label>
                     <input type="text" id="name" name="name" placeholder="Nhập tên của bạn" required>
-
-                    <label for="email">Email của bạn:</label>
+    
+                    <label for="email" id="label-email">Email của bạn:</label>
                     <input type="email" id="email" name="email" placeholder="Nhập email của bạn" required>
-
-                    <label for="question">Nội dung:</label>
-                    <textarea id="question" name="question" rows="4" cols="50" placeholder="Nhập câu hỏi tại đây..."
-                        required></textarea>
-
-                    <button type="submit" class="btn">Gửi câu hỏi</button>
+    
+                    <label for="question" id="label-question">Nội dung:</label>
+                    <textarea id="question" name="question" rows="4" cols="50" placeholder="Nhập câu hỏi tại đây..." required></textarea>
+    
+                    <button type="submit" class="btn" id="submit-button">Gửi câu hỏi</button>
                 </form>
             </section>
         </div>
@@ -97,36 +100,42 @@
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-about">
-                <h3>Về chúng tôi</h3>
-                <p>Trang web là bài dự thi của nhóm sinh viên lớp 4733, ngành Luật chất lượng cao nằm trong cuộc thi
+                <h3 id="footer-about-title">Về chúng tôi</h3> <!-- Added ID -->
+                <p id="footer-about-text">Trang web là bài dự thi của nhóm sinh viên lớp 4733, ngành Luật chất lượng cao
+                    nằm trong cuộc thi
                     “Sinh viên ứng dụng Công nghệ thông tin vào thiết kế các sản phẩm tuyên truyền phổ biến giáo dục
                     pháp luật”
                     do trường Đại học Luật Hà Nội tổ chức nhằm góp phần tuyên
-                    truyền và phổ biến pháp luật. </p>
-                <a href="introduce-page.html" class="team">Thành viên dự án</a>
+                    truyền và phổ biến pháp luật. </p> <!-- Added ID -->
+                <a href="introduce-page.html" class="team" id="footer-team-link">Thành viên dự án</a> <!-- Added ID -->
             </div>
             <div class="footer-contact">
-                <h3>Liên hệ</h3>
+                <h3 id="footer-contact-title">Liên hệ</h3> <!-- Added ID -->
                 <p>Email: <a href="mailto:phanngocnhi4733@gmail.com.">phanngocnhi4733@gmail.com.</a></p>
-                <p>Điện thoại: 0889020766</p>
-                <p>Địa chỉ: Trường Đại học Luật Hà Nội, 87 Đ. Nguyễn Chí Thanh, Láng Thượng, Đống Đa, Hà Nội</p>
+                <p><span id="footer-phone-label">Điện thoại</span>: 0889020766</p> <!-- Added ID -->
+                <p><span id="footer-address-label">Địa chỉ</span>: Trường Đại học Luật Hà Nội, 87 Đ. Nguyễn Chí Thanh,
+                    Láng Thượng, Đống Đa, Hà Nội</p> <!-- Added ID -->
             </div>
             <div class="footer-links">
-                <h3>Liên kết</h3>
+                <h3 id="footer-links-title">Liên kết</h3> <!-- Added ID -->
                 <ul>
-                    <li><a href="index.html">Trang chủ</a></li>
-                    <li><a href="index.html#main">Tra cứu thông tin</a></li>
-                    <li><a href="vbpl-page.html">Văn bản pháp luật</a></li>
-                    <li><a href="https://docs.google.com/document/d/1hzQAMvkHB7wY5bDoYjXfYhu8C_z6M8sQN4QOfZnBDLs/edit?usp=sharing">Hướng dẫn thủ tục</a></li>
-                    <li><a href="question-page.html">Hỏi đáp pháp lý</a></li>
+                    <!-- Use IDs from nav -->
+                    <li><a href="index.html" id="footer-nav-home">Trang chủ</a></li>
+                    <li><a href="index.html#main" id="footer-nav-search">Tra cứu thông tin</a></li>
+                    <li><a href="vbpl-page.html" id="footer-nav-legal">Văn bản pháp luật</a></li>
+                    <li><a href="https://docs.google.com/document/d/1hzQAMvkHB7wY5bDoYjXfYhu8C_z6M8sQN4QOfZnBDLs/edit?usp=sharing"
+                            id="footer-nav-guide">Hướng dẫn thủ tục</a></li>
+                    <li><a href="question-page.html" id="footer-nav-qa">Hỏi đáp pháp lý</a></li>
+
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Thông tin đất đai. Mọi quyền được bảo lưu.</p>
+            <p id="footer-copyright">© 2025 Thông tin đất đai. Mọi quyền được bảo lưu.</p> <!-- Added ID -->
         </div>
     </footer>
-    <script src="script-question.js"></script>
+    <script type="module" src="language-switcher.js"></script>
+    <script type="module" src="script-question.js"></script>
 </body>
 
 </html>

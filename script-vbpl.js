@@ -1,5 +1,7 @@
+const SHEET_URL_VI = "https://docs.google.com/spreadsheets/d/1WAAUVwWkuPjMWxkz8jipqu9UzOm0dcsWTYLHHH7Ulas/gviz/tq?tqx=out:json&gid=420273659";
+const SHEET_URL_EN = "https://docs.google.com/spreadsheets/d/1WAAUVwWkuPjMWxkz8jipqu9UzOm0dcsWTYLHHH7Ulas/gviz/tq?tqx=out:json&gid=978935665";
 
-const SHEET_URL = "https://docs.google.com/spreadsheets/d/1WAAUVwWkuPjMWxkz8jipqu9UzOm0dcsWTYLHHH7Ulas/gviz/tq?tqx=out:json&gid=420273659";
+
 
 let allData = [];
 
@@ -54,9 +56,20 @@ function convertToHTML(text) {
 }
 
 
+function getSheetUrlByLanguage() {
+    if (currentLanguage === "vi") {
+        return SHEET_URL_VI;
+    } else if (currentLanguage === "en") {
+        return SHEET_URL_EN;
+    } else {
+        return SHEET_URL_VI; // default là tiếng Việt
+    }
+}
+
 async function loadData() {
     try {
-        const response = await fetch(SHEET_URL);
+        const sheetUrl = getSheetUrlByLanguage();
+        const response = await fetch(sheetUrl);
         const text = await response.text();
         const json = JSON.parse(text.match(/google\.visualization\.Query\.setResponse\(([\s\S\w]+)\)/)[1]);
 
@@ -68,7 +81,7 @@ async function loadData() {
         }));
 
         console.log(data);
-        list_topics(data); // Gọi list_topics và truyền vào data
+        list_topics(data);
         topic_content(data);
 
     } catch (e) {
@@ -110,4 +123,31 @@ function topic_content(data) {
     });
 }
 
+import { currentLanguage, translations } from './language-switcher.js'; // import currentLanguage từ file language-switcher
+
+// translations bạn đã có rồi (đưa vào cùng file hoặc import từ file khác)
+
+function applyTranslations() {
+    for (const id in translations) {
+        if (id.includes("::placeholder")) {
+            const realId = id.split("::")[0];
+            const inputElement = document.getElementById(realId);
+            if (inputElement) {
+                inputElement.placeholder = translations[id][currentLanguage];
+            }
+        } else {
+            const element = document.getElementById(id);
+            if (element) {
+                element.innerHTML = translations[id][currentLanguage];
+            }
+        }
+    }
+}
+
+
+
 document.addEventListener("DOMContentLoaded", loadData);
+
+window.addEventListener('DOMContentLoaded', async () => {
+    applyTranslations();
+});

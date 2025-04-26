@@ -1,19 +1,6 @@
+import { currentLanguage, translations } from './language-switcher.js'; // import currentLanguage từ file language-switcher
 
-const SHEET_URL = 'https://docs.google.com/spreadsheets/d/1WAAUVwWkuPjMWxkz8jipqu9UzOm0dcsWTYLHHH7Ulas/gviz/tq?tqx=out:json&gid=0';
-const SHEET_URL_2 = 'https://docs.google.com/spreadsheets/d/1WAAUVwWkuPjMWxkz8jipqu9UzOm0dcsWTYLHHH7Ulas/gviz/tq?tqx=out:json&gid=574556602';
-let allData = [];
-let allData2 = [];
-
-
-window.addEventListener("scroll", function () {
-    const navbar = document.querySelector(".navbar");
-    if (window.scrollY > 50) {
-        navbar.classList.add("scrolled");
-    } else {
-        navbar.classList.remove("scrolled");
-    }
-});
-
+// JS DÙNG CHUNG
 window.addEventListener('scroll', function () {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 50) {
@@ -31,37 +18,91 @@ menuToggle.addEventListener('click', () => {
 });
 
 
-async function loadData() {
+
+// JS của HomePage
+const search_data_url = 'https://docs.google.com/spreadsheets/d/1WAAUVwWkuPjMWxkz8jipqu9UzOm0dcsWTYLHHH7Ulas/gviz/tq?tqx=out:json&gid=0';
+const qdpl_url = 'https://docs.google.com/spreadsheets/d/1WAAUVwWkuPjMWxkz8jipqu9UzOm0dcsWTYLHHH7Ulas/gviz/tq?tqx=out:json&gid=574556602';
+
+const search_data_url_e = 'https://docs.google.com/spreadsheets/d/1WAAUVwWkuPjMWxkz8jipqu9UzOm0dcsWTYLHHH7Ulas/gviz/tq?tqx=out:json&gid=197171933';
+const qdpl_url_e = 'https://docs.google.com/spreadsheets/d/1WAAUVwWkuPjMWxkz8jipqu9UzOm0dcsWTYLHHH7Ulas/gviz/tq?tqx=out:json&gid=438462088';
+
+
+let search_data = [];
+let qdpl_data = [];
+let search_data_e = [];
+let qdpl_data_e = [];
+
+async function load_search_data() {
     try {
-        const response = await fetch(SHEET_URL);
+        const response = await fetch(search_data_url);
         const text = await response.text();
         const json = JSON.parse(text.match(/google\.visualization\.Query\.setResponse\(([\s\S\w]+)\)/)[1]);
 
         const rows = json.table.rows;
         const dataRows = rows.slice(1);
 
-        allData = dataRows.map(row => ({
+        search_data = dataRows.map(row => ({
             city: row.c[0]?.v || '',
             type: row.c[1]?.v || '',
             title: row.c[2]?.v || '',
             link: row.c[3]?.v || ''
         }));
 
-        populateCityList(allData);
+        populateCityList(search_data);
     } catch (e) {
         console.error('Lỗi khi tải dữ liệu:', e);
     }
 }
 
-async function loadData2() {
+async function load_qdpl_data() {
     try {
-        const response = await fetch(SHEET_URL_2);
+        const response = await fetch(qdpl_url);
         const text = await response.text();
         const json = JSON.parse(text.match(/google\.visualization\.Query\.setResponse\(([\s\S\w]+)\)/)[1]);
 
         const rows = json.table.rows;
         const dataRows = rows.slice(1);
-        allData2 = dataRows.map(row => ({
+        qdpl_data = dataRows.map(row => ({
+            title: row.c[0]?.v || '',
+            link: row.c[1]?.v || '',
+            main_content: row.c[2]?.v || '',
+        }));
+    } catch (e) {
+        console.error('Lỗi khi tải dữ liệu:', e);
+    }
+}
+
+async function load_search_data_e() {
+    try {
+        const response = await fetch(search_data_url_e);
+        const text = await response.text();
+        const json = JSON.parse(text.match(/google\.visualization\.Query\.setResponse\(([\s\S\w]+)\)/)[1]);
+
+        const rows = json.table.rows;
+        const dataRows = rows.slice(1);
+
+        search_data_e = dataRows.map(row => ({
+            city: row.c[0]?.v || '',
+            type: row.c[1]?.v || '',
+            title: row.c[2]?.v || '',
+            link: row.c[3]?.v || ''
+        }));
+
+        populateCityList(search_data_e);
+    } catch (e) {
+        console.error('Lỗi khi tải dữ liệu:', e);
+    }
+}
+
+async function load_qdpl_data_e() {
+    try {
+        const response = await fetch(qdpl_url_e);
+        const text = await response.text();
+        const json = JSON.parse(text.match(/google\.visualization\.Query\.setResponse\(([\s\S\w]+)\)/)[1]);
+
+        const rows = json.table.rows;
+        const dataRows = rows.slice(1);
+        qdpl_data_e = dataRows.map(row => ({
             title: row.c[0]?.v || '',
             link: row.c[1]?.v || '',
             main_content: row.c[2]?.v || '',
@@ -81,20 +122,22 @@ function populateCityList(data) {
     });
 }
 
-function searchLandDocs() {
+window.searchLandDocs = function () {
+    console.log(currentLanguage);
     const cityInput = document.getElementById('cityInput');
     const city = cityInput.value.trim().toLowerCase();
-    const paperType = document.getElementById('paperSelect').value;
+    let paperType = document.getElementById('paperSelect').value;
 
-    // Kiểm tra nếu chưa chọn thành phố
     if (city === '') {
         cityInput.style.border = '1px solid red';
 
-        cityInput.placeholder = "Hãy chọn khu vực"
-
-        return; // Không thực hiện tìm kiếm khi không có thành phố
+        if (currentLanguage === "vi") {
+            cityInput.placeholder = "Hãy chọn khu vực";
+        } else {
+            cityInput.placeholder = "Please select a region";
+        }
+        return;
     } else {
-        // Nếu đã nhập thành phố, xoá cảnh báo (nếu có)
         cityInput.style.border = '';
         const warning = document.getElementById('city-warning');
         if (warning) {
@@ -102,14 +145,37 @@ function searchLandDocs() {
         }
     }
 
-    // Lọc dữ liệu nếu hợp lệ
-    const filtered = allData.filter(item => {
-        const matchesCity = item.city.toLowerCase().includes(city);
-        const matchesType = paperType === 'All' || item.type === paperType;
-        return matchesCity && matchesType;
-    });
+    let filtered = [];
 
-    renderTable(filtered, paperType);
+    console.log(search_data)
+
+    console.log(search_data_e)
+    console.log(city)
+    console.log(paperType)
+
+    if (currentLanguage === "vi") {
+        filtered = search_data.filter(item => {
+            const matchesCity = item.city.toLowerCase().includes(city);
+            const matchesType = paperType === 'All' || item.type === paperType;
+            return matchesCity && matchesType;
+        });
+        renderTable(filtered, paperType);
+    } else {
+        filtered = search_data_e.filter(item => {
+            const matchesCity = item.city.toLowerCase().includes(city);
+            if(paperType === "Quy hoạch và sử dụng đất"){
+                paperType = "Land planning and use"
+            }else if(paperType === "Định giá đất"){
+                paperType = "Land valuation"
+            }else if(paperType === "Thu hồi, bồi thường, tái định cư"){
+                paperType = "Land acquisition, compensation, resettlement"
+            }
+            const matchesType = paperType === 'All' || item.type === paperType;
+            return matchesCity && matchesType;
+        });
+        renderTable_e(filtered, paperType);
+    }
+    console.log(filtered)
 }
 
 function renderTable(data, type) {
@@ -122,7 +188,6 @@ function renderTable(data, type) {
 
     let html = '';
 
-    // Trường hợp từng loại cụ thể
     if (type === "Quy hoạch và sử dụng đất" || type === "Định giá đất") {
         html += `
             <div class="result-card">
@@ -134,11 +199,8 @@ function renderTable(data, type) {
                         </li>`).join('')}
                 </ul>
             </div>`;
-    }
-
-    // Trường hợp đặc biệt: dữ liệu từ bảng 2 (allData2)
-    else if (type === "Thu hồi, bồi thường, tái định cư") {
-        if (allData2.length === 0) {
+    } else if (type === "Thu hồi, bồi thường, tái định cư") {
+        if (qdpl_data.length === 0) {
             results.innerHTML = '<p>Không có dữ liệu về Thu hồi, bồi thường, tái định cư.</p>';
             return;
         }
@@ -147,18 +209,14 @@ function renderTable(data, type) {
             <div class="result-card">
                 <h4 class="">Tài liệu: Thu hồi, bồi thường, tái định cư</h4>
                 <ul class="result-list">
-                    ${allData2.map(item => `
+                    ${qdpl_data.map(item => `
                         <li class="result-list-items">
                             <a href="${item.link}" target="_blank">${item.title}</a>
                             <p class="main-content"> - ${item.main_content}</p>
                         </li>`).join('')}
                 </ul>
             </div>`;
-    }
-
-    // Trường hợp chọn "All"
-    else if (type === "All") {
-        // Nhóm dữ liệu theo loại
+    } else if (type === "All") {
         const grouped = {};
 
         data.forEach(item => {
@@ -179,13 +237,12 @@ function renderTable(data, type) {
                 </div>`;
         }
 
-        // Thêm phần "Thu hồi, bồi thường, tái định cư" vào cuối nếu có
-        if (allData2.length > 0) {
+        if (qdpl_data.length > 0) {
             html += `
                 <div class="result-card">
                     <h4 class="">Tài liệu: Thu hồi, bồi thường, tái định cư</h4>
                     <ul class="result-list">
-                        ${allData2.map(item => `
+                        ${qdpl_data.map(item => `
                             <li class="result-list-items">
                                 <a href="${item.link}" target="_blank">${item.title}</a>
                                 <p class="main-content"> - ${item.main_content}</p>
@@ -198,8 +255,110 @@ function renderTable(data, type) {
     results.innerHTML = html;
 }
 
-// Gọi khi trang tải xong
+function renderTable_e(data, type) {
+    const results = document.getElementById('results');
+
+    if (data.length === 0 && type !== "Land acquisition, compensation, resettlement") {
+        results.innerHTML = '<p class="no-data">No matching data found.</p>';
+        return;
+    }
+
+    let html = '';
+
+    if (type === "Land planning and use" || type === "Land valuation") {
+        html += `
+            <div class="result-card">
+                <h4 class="">Documents: ${type}</h4>
+                <ul class="result-list">
+                    ${data.map(item => `
+                        <li class="result-list-items">
+                            <a href="${item.link}" target="_blank">${item.title}</a>
+                        </li>`).join('')}
+                </ul>
+            </div>`;
+    } else if (type === "Land acquisition, compensation, resettlement") {
+        if (qdpl_data_e.length === 0) {
+            results.innerHTML = '<p>No data about Land Acquisition, Compensation, and Resettlement.</p>';
+            return;
+        }
+
+        html += `
+            <div class="result-card">
+                <h4 class="">Documents: Land Acquisition, Compensation, Resettlement</h4>
+                <ul class="result-list">
+                    ${qdpl_data_e.map(item => `
+                        <li class="result-list-items">
+                            <a href="${item.link}" target="_blank">${item.title}</a>
+                            <p class="main-content"> - ${item.main_content}</p>
+                        </li>`).join('')}
+                </ul>
+            </div>`;
+    } else if (type === "All") {
+        const grouped = {};
+
+        data.forEach(item => {
+            if (!grouped[item.type]) grouped[item.type] = [];
+            grouped[item.type].push(item);
+        });
+
+        for (const [groupType, items] of Object.entries(grouped)) {
+            html += `
+                <div class="result-card">
+                    <h4 class="">Documents: ${groupType}</h4>
+                    <ul class="result-list">
+                        ${items.map(item => `
+                            <li class="result-list-items">
+                                <a href="${item.link}" target="_blank">${item.title}</a>
+                            </li>`).join('')}
+                    </ul>
+                </div>`;
+        }
+
+        if (qdpl_data_e.length > 0) {
+            html += `
+                <div class="result-card">
+                    <h4 class="">Documents: Land Acquisition, Compensation, Resettlement</h4>
+                    <ul class="result-list">
+                        ${qdpl_data_e.map(item => `
+                            <li class="result-list-items">
+                                <a href="${item.link}" target="_blank">${item.title}</a>
+                                <p class="main-content"> - ${item.main_content}</p>
+                            </li>`).join('')}
+                    </ul>
+                </div>`;
+        }
+    }
+
+    results.innerHTML = html;
+}
+
+
+// translations bạn đã có rồi (đưa vào cùng file hoặc import từ file khác)
+
+function applyTranslations() {
+    for (const id in translations) {
+        if (id.includes("::placeholder")) {
+            const realId = id.split("::")[0];
+            const inputElement = document.getElementById(realId);
+            if (inputElement) {
+                inputElement.placeholder = translations[id][currentLanguage];
+            }
+        } else {
+            const element = document.getElementById(id);
+            if (element) {
+                element.innerHTML = translations[id][currentLanguage];
+            }
+        }
+    }
+}
+
+
 window.addEventListener('DOMContentLoaded', async () => {
-    await loadData();
-    await loadData2();
+    applyTranslations();
+
+    await load_search_data();
+    await load_qdpl_data();
+    await load_search_data_e();
+    await load_qdpl_data_e();
+
 });

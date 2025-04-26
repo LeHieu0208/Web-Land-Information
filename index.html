@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi"> <!-- Start with Vietnamese as default -->
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thông tin đất đai</title>
+    <title id="page-title">Thông tin đất đai</title> <!-- Added ID -->
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,45 +14,46 @@
 
 <body>
     <header class="header">
-        <div class="overlay"></div> <!-- ← thêm dòng này -->
+        <div class="overlay"></div>
         <div class="content">
             <nav class="navbar">
-                <!-- Navigation -->
-                <!-- Menu Toggle -->
-                <button class="menu-toggle" aria-label="Toggle menu">☰</button>
-                <ul>
-                    <li>
-                        <a href="index.html">Trang chủ</a>
-                    </li>
-                    <li>
-                        <a href="index.html#main">Tra cứu thông tin</a>
-                    </li>
-                    <li>
-                        <a href="vbpl-page.html">Văn bản pháp luật</a>
-                    </li>
-                    <li>
-                        <a href="https://docs.google.com/document/d/1hzQAMvkHB7wY5bDoYjXfYhu8C_z6M8sQN4QOfZnBDLs/edit?usp=sharing">Hướng dẫn thủ tục</a>
-                    </li>
-                    <li>
-                        <a href="question-page.html">Hỏi đáp pháp lý</a>
-                    </li>
-                </ul>
-                <!-- Brand -->
-                <div class="brand">
-                    <a href="#!">Thông tin đất đai</a>
+                <div class="left-group">
+                    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+                    <ul>
+                        <li><a href="index.html" id="nav-home">Trang chủ</a></li>
+                        <li><a href="index.html#main" id="nav-search">Tra cứu thông tin</a></li>
+                        <li><a href="vbpl-page.html" id="nav-legal">Văn bản pháp luật</a></li>
+                        <li><a href="https://docs.google.com/document/d/1hzQAMvkHB7wY5bDoYjXfYhu8C_z6M8sQN4QOfZnBDLs/edit?usp=sharing"
+                                id="nav-guide">Hướng dẫn thủ tục</a></li>
+                        <li><a href="question-page.html" id="nav-qa">Hỏi đáp pháp lý</a></li>
+                    </ul>
+                </div>
+            
+                <div class="right-group">
+                    <div class="brand">
+                        <a href="#!" id="brand-text">Thông tin đất đai</a>
+                    </div>
+                    <div class="switch-wrapper">
+                        <span class="switch-label">VN</span>
+                        <label class="switch">
+                            <input type="checkbox" id="languageSwitch">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="switch-label">EN</span>
+                    </div>
                 </div>
             </nav>
             <!-- Hero part -->
             <div class="hero">
-                <h1 class="title">
+                <h1 class="title" id="hero-title"> <!-- Added ID -->
                     THÔNG TIN ĐẤT ĐAI
                 </h1>
-                <p class="desc">
+                <p class="desc" id="hero-desc"> <!-- Added ID -->
                     Trang web phổ biến pháp luật công khai, minh bạch đất đai cung cấp thông tin pháp lý rõ ràng, dễ
                     tiếp cận về các quy định liên quan đến quản lý, sử dụng và giao dịch đất đai.
                 </p>
                 <div class="find-more">
-                    <a href="#main" class="btn">Tìm hiểu thêm</a>
+                    <a href="#main" class="btn" id="find-more-btn">Tìm hiểu thêm</a> <!-- Added ID -->
                 </div>
             </div>
         </div>
@@ -62,71 +63,82 @@
         <section class="info-sec">
             <div class="info-grid">
                 <div id="search-tool" class="card search-tool">
-                    <h3 class="info-title">Tra cứu giấy tờ đất đai</h3>
+                    <h3 class="info-title" id="search-title">Tra cứu giấy tờ đất đai</h3> <!-- Added ID -->
 
                     <div class="select">
                         <div class="select-card city-select">
-                            <label for="cityInput">Nhập hoặc chọn khu vực</label>
+                            <label for="cityInput" id="city-label">Nhập hoặc chọn khu vực</label> <!-- Added ID -->
                             <input list="cityList" id="cityInput" name="city"
-                                placeholder="Nhập hoặc chọn thành phố..." />
+                                placeholder="Nhập hoặc chọn thành phố..." /> <!-- Placeholder updated by JS -->
                             <datalist id="cityList"></datalist>
                         </div>
                         <div class="select-card type-paper-select">
-                            <label for="paperSelect">Chọn loại giấy tờ bạn muốn tìm kiếm</label>
+                            <label for="paperSelect" id="paper-label">Chọn loại giấy tờ bạn muốn tìm kiếm</label>
+                            <!-- Added ID -->
                             <select name="paper" id="paperSelect">
-                                <option value="All" selected>All</option>
-                                <option value="Quy hoạch và sử dụng đất">Quy hoạch và sử dụng đất</option>
-                                <option value="Định giá đất">Định giá đất</option>
-                                <option value="Thu hồi, bồi thường, tái định cư">Thu hồi, bồi thường, tái định cư
-                                </option>
+                                <option value="All" selected id="paper-opt-all">Tất cả</option> <!-- Added ID -->
+                                <option value="Quy hoạch và sử dụng đất" id="paper-opt-planning">Quy hoạch và sử dụng
+                                    đất</option> <!-- Added ID -->
+                                <option value="Định giá đất" id="paper-opt-valuation">Định giá đất</option>
+                                <!-- Added ID -->
+                                <option value="Thu hồi, bồi thường, tái định cư" id="paper-opt-compensation">Thu hồi,
+                                    bồi thường, tái định cư</option> <!-- Added ID -->
                             </select>
                         </div>
 
-                        <button onclick="searchLandDocs()" class="btn">Tìm kiếm</button>
+                        <button onclick="searchLandDocs()" class="btn" id="search-button">Tìm kiếm</button>
+                        <!-- Added ID -->
                     </div>
                     <div class="results" id="results">
+                        <!-- Results will be rendered here by JS -->
                     </div>
                 </div>
                 <div class="card vbpl">
                     <a href="vbpl-page.html">
-                        <img src="./assets/img/vbpl.jpg" alt="question">
+                        <img src="./assets/img/vbpl.jpg" alt="Văn bản pháp luật">
+                        <!-- Alt text might need translation if crucial -->
                         <div class="info-content">
                             <h3 class="info-title">
-                                <a href="vbpl-page.html">Văn bản pháp luật</a>
+                                <a href="vbpl-page.html" id="vbpl-title">Văn bản pháp luật</a> <!-- Added ID -->
                             </h3>
-                            <p class="info-desc desc">
-                                Chuyên mục cung cấp sự giải đáp chi tiết về nhưng điều luật quan trọng về đất đai mới được cập nhật.
+                            <p class="info-desc desc" id="vbpl-desc"> <!-- Added ID -->
+                                Chuyên mục cung cấp sự giải đáp chi tiết về nhưng điều luật quan trọng về đất đai mới
+                                được cập nhật.
                             </p>
                         </div>
                     </a>
                 </div>
                 <div class="card instruc">
-                    <img src="./assets/img/instruction.jpg" alt="instruction">
-                    <div class="info-content">
-                        <h3 class="info-title">
-                            <a href="">Hướng dẫn thủ tục</a>
-                        </h3>
-                        <p class="info-desc desc">
-                            Các thủ tục liên quan đến đấu giá, thu hồi và các đơn từ cần thiết đều có ở đây!
-                        </p>
-                    </div>
-                </div>
-                <div class="card question">
-                    <a href="question-page.html">
-                        <img src="./assets/img/question.jpg" alt="question">
+                    <!-- Link needs to be updated if English version exists -->
+                    <a href="https://docs.google.com/document/d/1hzQAMvkHB7wY5bDoYjXfYhu8C_z6M8sQN4QOfZnBDLs/edit?usp=sharing"
+                        target="_blank" id="instruc-link">
+                        <img src="./assets/img/instruction.jpg" alt="Hướng dẫn thủ tục">
                         <div class="info-content">
                             <h3 class="info-title">
-                                <a href="question-page.html">Hỏi đáp pháp lý</a>
+                                <!-- Link text is inside the h3 -->
+                                <span id="instruc-title">Hướng dẫn thủ tục</span> <!-- Added ID -->
                             </h3>
-                            <p class="info-desc desc">
-                                Chuyên mục giải đáp thắc mắc của người dân và doanh nghiệp về các vấn đề pháp luật đất
-                                đai,
-                                với sự tham gia của chuyên gia pháp lý.
+                            <p class="info-desc desc" id="instruc-desc"> <!-- Added ID -->
+                                Các thủ tục liên quan đến đấu giá, thu hồi và các đơn từ cần thiết đều có ở đây!
                             </p>
                         </div>
                     </a>
                 </div>
-                
+                <div class="card question">
+                    <a href="question-page.html">
+                        <img src="./assets/img/question.jpg" alt="Hỏi đáp pháp lý">
+                        <div class="info-content">
+                            <h3 class="info-title">
+                                <a href="question-page.html" id="question-title">Hỏi đáp pháp lý</a> <!-- Added ID -->
+                            </h3>
+                            <p class="info-desc desc" id="question-desc"> <!-- Added ID -->
+                                Chuyên mục giải đáp thắc mắc của người dân và doanh nghiệp về các vấn đề pháp luật đất
+                                đai, với sự tham gia của chuyên gia pháp lý.
+                            </p>
+                        </div>
+                    </a>
+                </div>
+
             </div>
         </section>
     </main>
@@ -134,38 +146,43 @@
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-about">
-                <h3>Về chúng tôi</h3>
-                <p>Trang web là bài dự thi của nhóm sinh viên lớp 4733, ngành Luật chất lượng cao nằm trong cuộc thi
+                <h3 id="footer-about-title">Về chúng tôi</h3> <!-- Added ID -->
+                <p id="footer-about-text">Trang web là bài dự thi của nhóm sinh viên lớp 4733, ngành Luật chất lượng cao
+                    nằm trong cuộc thi
                     “Sinh viên ứng dụng Công nghệ thông tin vào thiết kế các sản phẩm tuyên truyền phổ biến giáo dục
                     pháp luật”
                     do trường Đại học Luật Hà Nội tổ chức nhằm góp phần tuyên
-                    truyền và phổ biến pháp luật. </p>
-                <a href="introduce-page.html" class="team">Thành viên dự án</a>
+                    truyền và phổ biến pháp luật. </p> <!-- Added ID -->
+                <a href="introduce-page.html" class="team" id="footer-team-link">Thành viên dự án</a> <!-- Added ID -->
             </div>
             <div class="footer-contact">
-                <h3>Liên hệ</h3>
+                <h3 id="footer-contact-title">Liên hệ</h3> <!-- Added ID -->
                 <p>Email: <a href="mailto:phanngocnhi4733@gmail.com.">phanngocnhi4733@gmail.com.</a></p>
-                <p>Điện thoại: 0889020766</p>
-                <p>Địa chỉ: Trường Đại học Luật Hà Nội, 87 Đ. Nguyễn Chí Thanh, Láng Thượng, Đống Đa, Hà Nội</p>
+                <p><span id="footer-phone-label">Điện thoại</span>: 0889020766</p> <!-- Added ID -->
+                <p><span id="footer-address-label">Địa chỉ</span>: Trường Đại học Luật Hà Nội, 87 Đ. Nguyễn Chí Thanh,
+                    Láng Thượng, Đống Đa, Hà Nội</p> <!-- Added ID -->
             </div>
             <div class="footer-links">
-                <h3>Liên kết</h3>
+                <h3 id="footer-links-title">Liên kết</h3> <!-- Added ID -->
                 <ul>
-                    <li><a href="index.html">Trang chủ</a></li>
-                    <li><a href="index.html#main">Tra cứu thông tin</a></li>
-                    <li><a href="vbpl-page.html">Văn bản pháp luật</a></li>
-                    <li><a href="https://docs.google.com/document/d/1hzQAMvkHB7wY5bDoYjXfYhu8C_z6M8sQN4QOfZnBDLs/edit?usp=sharing">Hướng dẫn thủ tục</a></li>
-                    <li><a href="question-page.html">Hỏi đáp pháp lý</a></li>
-                    
+                    <!-- Use IDs from nav -->
+                    <li><a href="index.html" id="footer-nav-home">Trang chủ</a></li>
+                    <li><a href="index.html#main" id="footer-nav-search">Tra cứu thông tin</a></li>
+                    <li><a href="vbpl-page.html" id="footer-nav-legal">Văn bản pháp luật</a></li>
+                    <li><a href="https://docs.google.com/document/d/1hzQAMvkHB7wY5bDoYjXfYhu8C_z6M8sQN4QOfZnBDLs/edit?usp=sharing"
+                            id="footer-nav-guide">Hướng dẫn thủ tục</a></li>
+                    <li><a href="question-page.html" id="footer-nav-qa">Hỏi đáp pháp lý</a></li>
+
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Thông tin đất đai. Mọi quyền được bảo lưu.</p>
+            <p id="footer-copyright">© 2025 Thông tin đất đai. Mọi quyền được bảo lưu.</p> <!-- Added ID -->
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script type="module" src="language-switcher.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 
 </html>

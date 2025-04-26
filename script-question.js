@@ -1,6 +1,4 @@
-const scriptURL = 'https://script.google.com/macros/s/AKfycbziqP25J3g2p5pXQ5dJ3neiyzJpF046II_jaj6qLeHG13xx59Y_nisU6zDN5wycWkkW/exec'; // Replace with the Web App URL from Step 2
-const form = document.forms['questionForm'];
-
+// Js dùng chung
 window.addEventListener('scroll', function () {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 50) {
@@ -16,6 +14,13 @@ const navLinks = document.querySelector('.navbar ul');
 menuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('active');
 });
+
+
+
+const scriptURL = 'https://script.google.com/macros/s/AKfycbziqP25J3g2p5pXQ5dJ3neiyzJpF046II_jaj6qLeHG13xx59Y_nisU6zDN5wycWkkW/exec'; // Replace with the Web App URL from Step 2
+const form = document.forms['questionForm'];
+
+
 
 form.addEventListener('submit', e => {
     e.preventDefault();
@@ -45,9 +50,11 @@ const pageSize = 5;
 let currentPage = 1;
 
 async function fetchGoogleSheetData() {
-    const sheetUrl = 'https://docs.google.com/spreadsheets/d/1WAAUVwWkuPjMWxkz8jipqu9UzOm0dcsWTYLHHH7Ulas/gviz/tq?tqx=out:json&gid=274850438';
+    const sheetUrlVI = 'https://docs.google.com/spreadsheets/d/1WAAUVwWkuPjMWxkz8jipqu9UzOm0dcsWTYLHHH7Ulas/gviz/tq?tqx=out:json&gid=274850438'; // Tiếng Việt
+    const sheetUrlEN = 'https://docs.google.com/spreadsheets/d/1WAAUVwWkuPjMWxkz8jipqu9UzOm0dcsWTYLHHH7Ulas/gviz/tq?tqx=out:json&gid=1875282836'; // Tiếng Anh
 
     try {
+        const sheetUrl = currentLanguage === "vi" ? sheetUrlVI : sheetUrlEN; // Chọn link phù hợp
         const response = await fetch(sheetUrl);
         const text = await response.text();
         const json = JSON.parse(text.substring(47).slice(0, -2));
@@ -58,17 +65,15 @@ async function fetchGoogleSheetData() {
             let formattedDate = "";
 
             if (rawDate instanceof Date) {
-                // Nếu đã là object Date
                 const day = String(rawDate.getDate()).padStart(2, '0');
                 const month = String(rawDate.getMonth() + 1).padStart(2, '0');
                 const year = rawDate.getFullYear();
                 formattedDate = `${day}/${month}/${year}`;
             } else if (typeof rawDate === 'string' && rawDate.startsWith("Date(")) {
-                // Nếu là chuỗi dạng Date(2025,3,23)
                 const match = rawDate.match(/Date\((\d+),(\d+),(\d+)\)/);
                 if (match) {
                     const year = parseInt(match[1]);
-                    const month = parseInt(match[2]) + 1; // Cộng 1 vì JS Date bắt đầu từ 0
+                    const month = parseInt(match[2]) + 1;
                     const day = parseInt(match[3]);
                     formattedDate = `${String(day).padStart(2, '0')}/${String(month).padStart(2, '0')}/${year}`;
                 }
@@ -94,28 +99,25 @@ async function fetchGoogleSheetData() {
 }
 
 function convertToHTML(text) {
-    // Chuẩn hóa các lỗi thường gặp khi viết nhầm thẻ
     text = text
-      .replace(/<b\/>/g, "</b>")
-      .replace(/<i\/>/g, "</i>")
-      .replace(/<br\/>/g, "<br>");
-  
-    // Escape các ký tự HTML trước khi chuyển ngược tag
+        .replace(/<b\/>/g, "</b>")
+        .replace(/<i\/>/g, "</i>")
+        .replace(/<br\/>/g, "<br>");
+
     let converted = text
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;");
-  
-    // Chuyển các thẻ đã escape về HTML thực
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+
     converted = converted
-      .replace(/&lt;b&gt;/g, "<b>")
-      .replace(/&lt;\/b&gt;/g, "</b>")
-      .replace(/&lt;i&gt;/g, "<i>")
-      .replace(/&lt;\/i&gt;/g, "</i>")
-      .replace(/\n/g, "<br>");
-  
+        .replace(/&lt;b&gt;/g, "<b>")
+        .replace(/&lt;\/b&gt;/g, "</b>")
+        .replace(/&lt;i&gt;/g, "<i>")
+        .replace(/&lt;\/i&gt;/g, "</i>")
+        .replace(/\n/g, "<br>");
+
     return converted;
-  }
+}
 
 function renderPage(page) {
     const questionList = document.querySelector(".list-ques");
@@ -169,5 +171,33 @@ function updatePaginationButtons() {
     });
 }
 
-fetchGoogleSheetData();
+import { currentLanguage, translations } from './language-switcher.js';
 
+function applyTranslations() {
+    for (const id in translations) {
+        if (id.includes("::placeholder")) {
+            const realId = id.split("::")[0];
+            const inputElement = document.getElementById(realId);
+            if (inputElement) {
+                inputElement.placeholder = translations[id][currentLanguage];
+            }
+        } else {
+            const element = document.getElementById(id);
+            if (element) {
+                element.innerHTML = translations[id][currentLanguage];
+            }
+        }
+    }
+}
+
+window.addEventListener('DOMContentLoaded', async () => {
+    applyTranslations();
+    fetchGoogleSheetData();
+});
+
+// Nếu đổi ngôn ngữ thì nhớ gọi lại fetchGoogleSheetData()
+function changeLanguage(lang) {
+    currentLanguage = lang;
+    applyTranslations();
+    fetchGoogleSheetData();
+}
