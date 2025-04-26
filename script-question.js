@@ -1,6 +1,22 @@
 const scriptURL = 'https://script.google.com/macros/s/AKfycbziqP25J3g2p5pXQ5dJ3neiyzJpF046II_jaj6qLeHG13xx59Y_nisU6zDN5wycWkkW/exec'; // Replace with the Web App URL from Step 2
 const form = document.forms['questionForm'];
 
+window.addEventListener('scroll', function () {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.navbar ul');
+
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+});
+
 form.addEventListener('submit', e => {
     e.preventDefault();
     const submitButton = form.querySelector('.btn');
@@ -154,3 +170,4 @@ function updatePaginationButtons() {
 }
 
 fetchGoogleSheetData();
+

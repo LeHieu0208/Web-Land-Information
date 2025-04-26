@@ -3,6 +3,22 @@ const SHEET_URL = "https://docs.google.com/spreadsheets/d/1WAAUVwWkuPjMWxkz8jipq
 
 let allData = [];
 
+window.addEventListener('scroll', function () {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.navbar ul');
+
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+});
+
 
 window.addEventListener("scroll", function () {
     const navbar = document.querySelector(".navbar");
