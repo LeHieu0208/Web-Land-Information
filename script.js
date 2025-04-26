@@ -163,11 +163,11 @@ window.searchLandDocs = function () {
     } else {
         filtered = search_data_e.filter(item => {
             const matchesCity = item.city.toLowerCase().includes(city);
-            if(paperType === "Quy hoạch và sử dụng đất"){
+            if (paperType === "Quy hoạch và sử dụng đất") {
                 paperType = "Land planning and use"
-            }else if(paperType === "Định giá đất"){
+            } else if (paperType === "Định giá đất") {
                 paperType = "Land valuation"
-            }else if(paperType === "Thu hồi, bồi thường, tái định cư"){
+            } else if (paperType === "Thu hồi, bồi thường, tái định cư") {
                 paperType = "Land acquisition, compensation, resettlement"
             }
             const matchesType = paperType === 'All' || item.type === paperType;
@@ -350,15 +350,21 @@ function applyTranslations() {
             }
         }
     }
+    const ps = document.querySelectorAll('.footer-contact p');
+    const thirdP = ps[2];
+
+    thirdP.innerHTML = `<span id="footer-address-label">Address</span>: Hanoi Law University, 87 Nguyen Chi Thanh Street, Lang Thuong Ward, Dong Da District, Hanoi.`;
 }
 
 
 window.addEventListener('DOMContentLoaded', async () => {
     applyTranslations();
-
-    await load_search_data();
-    await load_qdpl_data();
-    await load_search_data_e();
-    await load_qdpl_data_e();
+    if (currentLanguage === "vi") {
+        await load_search_data();
+        await load_qdpl_data();
+    } else {
+        await load_search_data_e();
+        await load_qdpl_data_e();
+    }
 
 });

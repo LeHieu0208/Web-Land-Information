@@ -188,6 +188,10 @@ function applyTranslations() {
             }
         }
     }
+    const ps = document.querySelectorAll('.footer-contact p');
+    const thirdP = ps[2];
+
+    thirdP.innerHTML = `<span id="footer-address-label">Address</span>: Hanoi Law University, 87 Nguyen Chi Thanh Street, Lang Thuong Ward, Dong Da District, Hanoi.`;
 }
 
 window.addEventListener('DOMContentLoaded', async () => {
