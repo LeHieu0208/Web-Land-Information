@@ -187,128 +187,76 @@ a {
 
 }
 
-/* main */
-
-.main{
+/* Main */
+.main {
+    margin-top: 100px;
+    padding: 20px 50px;
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
+}
+
+.main .content{
+    max-width: 1200px;
+}
+
+.main .content .title{
+    color: var(--text-color);
+    font-weight: bold;
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    margin-bottom: 20px;
+}
+.main .content .list-topics{
+    margin-bottom: 40px;
+    margin-left: 20px;
+}
+.main .content .list-topics li{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+.main .content .list-topics li span{
+   color: var(--text-color);
+   font-weight: 600;
+   font-size: 1.5rem;
+   margin-right: 10px;
+
+}
+
+.main .content .topic-content{
+}
+.main .content .topic-content div{
+}
+
+.main .content .topic-content div .name{
+    color: var(--text-color);
+    font-weight: bold;
+    font-size: 1.8rem;
+    margin-top: 20px;
+    display: flex;
     align-items: center;
 }
 
-/* --- Định nghĩa biến màu (Nếu chưa có) --- */
-/* Hãy đảm bảo các biến này được định nghĩa ở đâu đó, ví dụ :root */
-
-/* --- Kiểu dáng cho khu vực giới thiệu thành viên --- */
-.team-section {
-    max-width: 1200px;
-    padding: 40px 0; /* Khoảng đệm trên dưới */
-    margin-top: 40px;
-    padding-bottom: 0;
-}
-
-/* Kế thừa hoặc định nghĩa lại title-section nếu cần */
-.team-section .title-section {
-    color: var(--text-color); /* Sử dụng màu chính */
-    font-weight: 600;
-    text-align: start; /* Canh giữa tiêu đề */
-    margin-bottom: 40px; /* Khoảng cách dưới tiêu đề */
-    font-size: 3rem; /* Kích thước tiêu đề */
-}
-
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px; /* Khoảng cách giữa các card */
-}
-
-.team-member-card {
-    background-color: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: 8px;
-    padding: 60px 50px;
-    text-align: center; /* Canh giữa nội dung trong card */
-    box-shadow: var(--card-shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng mượt mà */
-    display: flex; /* Sử dụng Flexbox để căn chỉnh nội dung tốt hơn */
-    flex-direction: column; /* Xếp chồng ảnh và thông tin */
-    align-items: center; /* Căn giữa theo chiều ngang */
-}
-
-.team-member-card:hover {
-    transform: translateY(-5px); /* Nhấc card lên một chút khi hover */
-    box-shadow: var(--card-hover-shadow);
-}
-
-.member-photo {
-    width: 120px; /* Kích thước ảnh */
-    height: 120px;
-    border-radius: 50%; /* Bo tròn ảnh */
-    object-fit: cover; /* Đảm bảo ảnh đầy khung mà không bị méo */
-    margin-bottom: 20px; /* Khoảng cách dưới ảnh */
-    border: 3px solid var(--primary-color); /* Viền màu chính cho ảnh */
-    background-color: #f0f0f0; /* Màu nền nhẹ cho ảnh placeholder */
-}
-
-.member-info {
-    /* Container này giữ thông tin chữ */
-    color: var(--text-color-); /* Màu chữ chính từ biến */
-}
-
-.member-name {
-    font-size: 2rem;
-    font-weight: 600;
-    color: var(--text-color); /* Tên thành viên dùng màu chính */
-    margin-bottom: 10px;
-}
-
-.member-major,
-.member-role {
+.main .content .topic-content div .explain{
     font-size: 1.5rem;
-    color: var(--light-text); /* Màu chữ nhạt hơn cho chi tiết */
+    margin-left: 0px;
     line-height: 1.5;
-    margin-bottom: 5px;
 }
 
-.member-major strong,
-.member-role strong {
-    font-weight: 600;
-    color: var(--text-color-); /* Nhãn dùng màu chữ đậm hơn */
+.main .content .topic-content div b{
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-left: 0px;
+    padding: 10px 0;
+    display: inline-block;
 }
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-
-    .team-section {
-        padding: 40px 0; /* Khoảng đệm trên dưới */
-        margin: 50px;
-    }
-    .team-section .title-section {
-        color: var(--text-color); /* Sử dụng màu chính */
-        font-weight: 600;
-        text-align: center; /* Canh giữa tiêu đề */
-        margin-bottom: 40px; /* Khoảng cách dưới tiêu đề */
-        font-size: 3rem; /* Kích thước tiêu đề */
-    }
-    .team-grid {
-        /* Trên màn hình nhỏ, có thể chỉ muốn 1 cột */
-        grid-template-columns: 1fr; 
-        gap: 20px;
-    }
-
-    .member-photo {
-        width: 100px;
-        height: 100px;
-    }
-
-    .member-name {
-        font-size: 2rem;
-    }
-
-    .member-major,
-    .member-role {
-        font-size: 1.3rem;
-    }
+.main .content .topic-content div i{
+    font-style: italic;
+    font-size: 1.5rem;
+    margin-left: 0px;
+    display: inline-block;
 }
 
 /* Footer Styles */
@@ -397,6 +345,75 @@ a {
 }
 
 @media (max-width: 768px) {
+
+    .main {
+        margin-top: 70px;
+        padding: 20px 20px;
+    }
+
+    .main .content{
+        max-width: 1200px;
+        padding: 15px;
+    }
+    
+    .main .content .title{
+        color: var(--text-color);
+        font-weight: bold;
+        font-size: clamp(1.5rem, 5vw, 3rem);
+        margin-bottom: 20px;
+    }
+    .main .content .list-topics{
+        margin-bottom: 40px;
+        margin-left: 20px;
+    }
+    .main .content .list-topics li{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+    .main .content .list-topics li span{
+       color: var(--text-color);
+       font-weight: 600;
+       font-size: 1.5rem;
+       margin-right: 10px;
+    
+    }
+    
+    .main .content .topic-content{
+    }
+    .main .content .topic-content div{
+    }
+    
+    .main .content .topic-content div .name{
+        color: var(--text-color);
+        font-weight: bold;
+        font-size: 1.5rem;
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .main .content .topic-content div .explain{
+        font-size: 1.2rem;
+        margin-left: 0px;
+        line-height: 1.5;
+    }
+    
+    .main .content .topic-content div b{
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin-left: 0px;
+        padding: 10px 0;
+        display: inline-block;
+    }
+    .main .content .topic-content div i{
+        font-style: italic;
+        font-size: 1.2rem;
+        margin-left: 0px;
+        display: inline-block;
+    }
 
     .footer {
         padding-top: 30px;
