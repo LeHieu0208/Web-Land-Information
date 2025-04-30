@@ -330,6 +330,7 @@ a {
     align-items: center;
     font-size: 1.2rem;
     margin-bottom: 10px;
+    line-height: 1.5;
 }
 .main .content .list-topics li span{
    color: var(--text-color);
@@ -351,6 +352,7 @@ a {
     margin-top: 20px;
     display: flex;
     align-items: center;
+    line-height: 1.5;
 }
 
 .main .content .topic-content div .explain{
