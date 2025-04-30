@@ -486,6 +486,19 @@ a {
     word-break: break-all;
 }
 
+.footer-contact .logo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+}
+.footer-contact .logo img{
+    aspect-ratio: 1,1;
+    height: 50px;
+    border-radius: 50%;
+}
+
 .footer-bottom {
     background-color: #233140;
     padding: 20px 0;
